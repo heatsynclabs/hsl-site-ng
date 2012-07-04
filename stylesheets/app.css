@@ -1,28 +1,55 @@
 /* Artfully masterminded by ZURB  */
 
-/* --------------------------------------------------
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
+/* --------------------------------------------------------------------------
+ * Global styles
+ * --------------------------------------------------------------------------*/
 
+body {
+  background-color: black;
+  color: white;
+}
 
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
+h1, h2, h3 {
+  font-family: "Times Roman",  /* Windows */ times,  /* Unix+X, MacOS */ serif;
+  color: #F3A608;
+}
 
+.content {
+  margin-top: 20px !important;
+}
 
+.panel {
+  background: rgba(46,48,46, 0.7) !important;
+  border: 0px !important;
+  color: white;
+}
 
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
+.float {
+  margin-top: -40px !important;
+}
 
+.community-blogs {
+  background-color: #d2d4d2;
+}
 
+.community-blogs-left {
+  margin: 20px 0 0px 15px;
+  height: 300px;
+  background: url('http://cdn.screenrant.com/wp-content/uploads/tron-legacy-the-grid.jpg') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
+.community-blogs-right {
+  margin-bottom: 0px !important;
+}
 
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ */
-
+.main-image-div {
+  background: url('http://farm8.staticflickr.com/7129/7487622966_f203ff55ed_c.jpg') no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
