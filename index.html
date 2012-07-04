@@ -152,10 +152,37 @@
   <script src="javascripts/jquery.placeholder.min.js"></script>
   <script src="javascripts/jquery.tooltips.js"></script>
   <script src="javascripts/jquery.equalheights.js"></script>
+  <script src="javascripts/jquery.cycle.all.min.js"></script>
+  <script src="javascripts/jflickrfeed.min.js"></script>
   <script src="javascripts/app.js"></script>
   <script>
+    var flickrImages = [];
+
     $(document).ready(function() {
       $(".content").equalHeights(400,600);
+
+      $('.main-image-div').jflickrfeed({
+        limit: 10,
+        qstrings: {
+          id: '60827818@N07'
+        },
+        useTemplate: false,
+        itemCallback: function(item){
+          flickrImages.push(item);
+
+          if(flickrImages.length == 10)
+          {
+            var num = Math.floor(Math.random()*11) - 1;
+
+            $(this).css("background", "url("+flickrImages[num].image_b+")");
+            $('.float').html("<h4>"+flickrImages[num].title+"</h4>");
+
+            $('.main-image-div').click( function() {
+              window.location = flickrImages[num].link;
+            });
+          }
+        }
+      });
     });
   </script>
 
