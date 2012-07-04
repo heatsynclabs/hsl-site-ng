@@ -46,12 +46,11 @@
 
   <div class="row">
     <div class="ten columns centered main-image-div">
-      <!-- Grid Example -->
       <div class="row">
         <div class="four columns">
           <div class="panel content">
             <h3>HeatSync Labs</h3>
-            ...is a community workshop where artists,
+            <p>...is a community workshop where artists,
             engineers and hobbyists create their projects
             prototypes and their art. We're open FREE to
             the public M-F 7-10pm, and often outside those
@@ -61,13 +60,13 @@
             supported. We have no staff, only a passionate
             community, including you, who makes this
             happen every day. Bring your projects and your
-            passion and JOIN US!
+            passion and JOIN US! </p>
 
             <div style="text-align: center">
-              <p>HeatSync Labs</p>
-              <p>140 W. Main St</p>
-              <p>Mesa, AZ 85201</p>
-              <a href="#" class="radius button">Support Us!</a>
+              HeatSync Labs<br/>
+              140 W. Main St<br/>
+              Mesa, AZ 85201<br/>
+              <a href="#" class="radius button">Support Us!</a><br/>
             </div>
           </div>
         </div>
@@ -89,14 +88,13 @@
             <br />07:00pm Young Makers
             <br />Saturday July, 7
             <br />10:00am WE Collaborate
-
           </div>
         </div>
       </div>
     </div>
     <div class="four columns offset-by-eight">
       <div class="panel float">
-        <h3>This is an image!</h3>
+        <h4>This is an image!</h4>
       </div>
     </div>
   </div>
@@ -131,7 +129,7 @@
           <p>Board of Directors</p>
           <p>Contact</p>
         </div>
-        <div class="four columns">
+        <div class="three columns">
           <p>FAQ</p>
           <p>Wiki</p>
         </div>
@@ -139,7 +137,10 @@
           <p>IRC</p>
           <p>Hack the Planet</p>
         </div>
-
+        <div class="three columns">
+          <img src="http://live.heatsynclabs.org/snapshot.php?camera=1"/>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -150,7 +151,13 @@
   <script src="javascripts/jquery.customforms.js"></script>
   <script src="javascripts/jquery.placeholder.min.js"></script>
   <script src="javascripts/jquery.tooltips.js"></script>
+  <script src="javascripts/jquery.equalheights.js"></script>
   <script src="javascripts/app.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".content").equalHeights(400,600);
+    });
+  </script>
 
 </body>
 </html>

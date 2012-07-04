@@ -10,26 +10,47 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: "Times Roman",  /* Windows */ times,  /* Unix+X, MacOS */ serif;
+  font-family: "Times Roman",  times, serif;
   color: #F3A608;
 }
 
-.content {
-  margin-top: 20px !important;
-}
-
-.panel {
-  background: rgba(46,48,46, 0.7) !important;
-  border: 0px !important;
+h4 {
+  font-family: "Times Roman",  times,  serif;
   color: white;
 }
 
-.float {
-  margin-top: -40px !important;
+div.content {
+  margin-top: 20px ;
+  padding: 10px 10px 20px 10px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+div.panel {
+  background: rgba(46,48,46, 0.7) ;
+  border: 0px ;
+  color: white;
+}
+
+.button {
+  display: block;
+  background:#f99b0c;
+  border:1px solid #1e728c;
+  color:#fff;
+  cursor:pointer;
+  text-decoration:none;
+  -webkit-transition:background-color 0.15s ease-in-out;
+  -moz-transition:background-color 0.15s ease-in-out;
+  -o-transition:background-color 0.15s ease-in-out;
+  transition:background-color 0.15s ease-in-out
+}
+
+div.float {
+  margin-top: -20px ;
 }
 
 .community-blogs {
-  background-color: #d2d4d2;
+  background-color: #2c2c29;
 }
 
 .community-blogs-left {
@@ -42,8 +63,8 @@ h1, h2, h3 {
   background-size: cover;
 }
 
-.community-blogs-right {
-  margin-bottom: 0px !important;
+div.community-blogs-right {
+  margin-bottom: 0px ;
 }
 
 .main-image-div {
