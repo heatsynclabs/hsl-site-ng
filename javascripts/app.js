@@ -1,5 +1,57 @@
 jQuery(document).ready(function ($) {
 
+    var flickrImages = [];
+
+  /* ------------------------------------------------------------------------
+   * Equalize heights of main divs
+   * ------------------------------------------------------------------------*/
+    $(document).ready(function() {
+      $(".content").equalHeights(400,600);
+    });
+
+    /* ----------------------------------------------------------------------
+     * Flickr image magick
+     * ----------------------------------------------------------------------*/
+    $(document).ready(function() {
+
+      // Prevent .main-image-div from getting the child divs' onclicks
+      $(".content").click(function(e) {
+        e.stopPropagation();
+      })
+
+      // this function sticks a random image from flickrImages[] in to the
+      // background of .main-image-div and causes a JS link to the image's
+      // flickrpage
+      var newImage = function() {
+        var num = Math.floor(Math.random()*11) - 1;
+
+        $('.main-image-div').css("background", "url("+flickrImages[num].image_b+")");
+        $('.float').html("<h4>"+flickrImages[num].title+"</h4>");
+
+        $('.main-image-div').click( function() {
+          window.location = flickrImages[num].link;
+        });
+      };
+
+      // Do the jquery flick goodness
+      $('.main-image-div').jflickrfeed({
+        limit: 10,
+        qstrings: {
+          id: '60827818@N07'
+        },
+        useTemplate: false,
+        itemCallback: function(item){
+          flickrImages.push(item);
+
+          if(flickrImages.length == 10)
+          {
+            newImage();
+            setInterval(newImage, 10000);
+          }
+        }
+      })
+    });
+
   /* TABS --------------------------------- */
   /* Remove if you don't need :) */
 
