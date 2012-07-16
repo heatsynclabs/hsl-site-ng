@@ -2,12 +2,6 @@ jQuery(document).ready(function ($) {
 
     var flickrImages = [];
 
-  /* ------------------------------------------------------------------------
-   * Equalize heights of main divs
-   * ------------------------------------------------------------------------*/
-    $(document).ready(function() {
-      $(".content").equalHeights(400,600);
-    });
 
     /* ----------------------------------------------------------------------
      * Flickr image magick
