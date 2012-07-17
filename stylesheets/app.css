@@ -34,10 +34,9 @@ div.main-image-div {
 }
 
 div.content {
-  margin-top: 20px ;
-  padding: 10px 10px 20px 10px;
+  margin-top: 10px ;
+  padding: 20px 10px 20px 10px;
   overflow: hidden;
-  text-align: justify;
   cursor: default;
 }
 
@@ -58,4 +57,19 @@ div.panel {
 
 div.float {
   margin-top: -20px ;
+}
+
+div.share {
+	margin-top: 6%;
+}
+
+div.logo{
+	z-index:1;
+}
+
+img.logoimage{
+	height:75px; 
+	width: 303px; 
+	margin-bottom:-3; 
+	float:left
 }
