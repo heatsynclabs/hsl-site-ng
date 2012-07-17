@@ -27,7 +27,7 @@ div.main-image-div {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-position: 90px,0px;
+  background-position: 50%;
   background-size: 1024px auto;
   background-repeat: no-repeat;
   cursor: pointer
