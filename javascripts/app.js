@@ -1,7 +1,9 @@
 jQuery(document).ready(function ($) {
 
     var flickrImages = [];
-
+	var flickrLimit = 20;
+	var previousIdx = 9999;
+	var timeout = {};
 
     /* ----------------------------------------------------------------------
      * Flickr image magick
@@ -16,8 +18,18 @@ jQuery(document).ready(function ($) {
       // this function sticks a random image from flickrImages[] in to the
       // background of .main-image-div and causes a JS link to the image's
       // flickrpage
-      var newImage = function() {
-        var num = Math.floor(Math.random()*11) - 1;
+      newImage = function() {
+        var num = Math.floor(Math.random()*flickrLimit+1) - 1;
+
+		if( num > flickrImages.length ) {
+			num = Math.floor(Math.random()*flickrImages.length+1)-1;	
+		}
+		
+		if( num == previousIdx) {
+			return;
+		}
+		
+		previousIdx = num;
 
         $('.main-image-div').css("background", "url("+flickrImages[num].image_b+") no-repeat 50%");
         $('.float').html("<h4>"+flickrImages[num].title+"</h4>");
@@ -29,19 +41,18 @@ jQuery(document).ready(function ($) {
 
       // Do the jquery flick goodness
       $('.main-image-div').jflickrfeed({
-        limit: 10,
+        limit: flickrLimit,
         qstrings: {
+	      tags: 'publish',
           id: '60827818@N07'
         },
         useTemplate: false,
         itemCallback: function(item){
           flickrImages.push(item);
 
-          if(flickrImages.length == 10)
-          {
-            newImage();
-            setInterval(newImage, 10000);
-          }
+			newImage();
+			clearInterval(timeout);
+            timeout = setInterval(newImage, 10000);
         }
       })
     });

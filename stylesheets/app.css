@@ -73,3 +73,7 @@ img.logoimage{
 	margin-bottom:-3; 
 	float:left
 }
+
+div.imageTag {
+text-align: center;
+}
