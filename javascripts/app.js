@@ -15,13 +15,12 @@ jQuery(document).ready(function ($) {
             e.stopPropagation();
 	})
 
-
 	// this function sticks a random image from flickrImages[] in to the
 	// background of .main-image-div and causes a JS link to the image's
 	// flickrpage
 	newImage = function() {
 	    var num=0;
-	    while ((num=Math.floor(Math.random()*flickrImages.length)) == previousIdx) {}	    
+	    while (flickrImages.length>1 && ((num=Math.floor(Math.random()*flickrImages.length)) == previousIdx)) {}
 	    previousIdx = num;
             $('.main-image-div').css("background", "url("+flickrImages[num].image_b+") no-repeat 50%");
             $('.float').html("<h4>"+flickrImages[num].title+"</h4>");
