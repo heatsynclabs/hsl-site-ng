@@ -5,18 +5,18 @@
  * --------------------------------------------------------------------------*/
 
 body {
-  background-color: black;
-  color: white;
+    background-color: black;
+    color: white;
 }
 
 h1, h2, h3 {
-  font-family: "Times Roman",  times, serif;
-  color: #F3A608;
+    font-family: "Times Roman",  times, serif;
+    color: #F3A608;
 }
 
 h4 {
-  font-family: "Times Roman",  times,  serif;
-  color: white;
+    font-family: "Times Roman",  times,  serif;
+    color: white;
 }
 
 /* --------------------------------------------------------------------------
@@ -24,57 +24,57 @@ h4 {
  * --------------------------------------------------------------------------*/
 
 div.main-image-div {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-position: 50%;
-  background-size: 1024px auto;
-  background-repeat: no-repeat;
-  cursor: pointer
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-position: 50%;
+    background-size: 1024px auto;
+    background-repeat: no-repeat;
+    cursor: pointer
 }
 
 div.content {
-  margin-top: 10px ;
-  padding: 20px 10px 20px 10px;
-  overflow: hidden;
-  cursor: default;
+    margin-top: 10px ;
+    padding: 20px 10px 20px 10px;
+    overflow: hidden;
+    cursor: default;
 }
 
 div.panel {
-  background: rgba(46,48,46, 0.7) ;
-  border: 0px ;
-  color: white;
+    background: rgba(46,48,46, 0.7) ;
+    border: 0px ;
+    color: white;
 }
 
 .button {
-  display: block;
-  background:#f99b0c;
-  border:1px solid #1e728c;
-  color:#fff;
-  cursor:pointer;
-  text-decoration:none;
+    display: block;
+    background:#f99b0c;
+    border:1px solid #1e728c;
+    color:#fff;
+    cursor:pointer;
+    text-decoration:none;
 }
 
 div.float {
-  margin-top: -20px ;
-  background: rgba(213, 137, 24, 0.7);
+    margin-top: -20px ;
+    background: rgba(213, 137, 24, 0.7);
 }
 
 div.share {
-	margin-top: 6%;
+    margin-top: 6%;
 }
 
 div.logo{
-	z-index:1;
+    z-index:1;
 }
 
 img.logoimage{
-	height:75px; 
-	width: 303px; 
-	margin-bottom:-3; 
-	float:left
+    height:75px; 
+    width: 303px; 
+    margin-bottom:-3; 
+    float:left
 }
 
 div.imageTag {
-text-align: center;
+    text-align: center;
 }
