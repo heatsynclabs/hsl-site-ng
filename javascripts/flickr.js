@@ -54,7 +54,7 @@ $.jflickrfeed = function(settings,callback){
 			var regex=/<p>(.*?)<\/p>/g;
 			var input=item.description;
 			if(regex.test(input)){
-			    item.description=input.match(regex)[2]
+			    item.description=input.match(regex)[2];
 			    if(item.description!=undefined)
 				item.description=item.description.replace('<p>','').replace('</p>','');
 			}
@@ -71,7 +71,7 @@ $.jflickrfeed = function(settings,callback){
 			    var rgx=new RegExp('{{'+key+'}}','g');
 			    template=template.replace(rgx,item[key]);
 			}
-			$container.append(template)
+			$container.append(template);
 		    }
 		    settings.itemCallback.call(container,item);
 		}

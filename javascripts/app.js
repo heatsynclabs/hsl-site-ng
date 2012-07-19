@@ -43,9 +43,11 @@ jQuery(document).ready(function ($) {
 		}
 	    },
 	    function(){
-		newImage();
-		timeout = setInterval(newImage, 10000)
+		//newImage();
+		//timeout = setInterval(newImage, 10000)
+		initialize(flickrImages);
 	    });
+
 
     });
 
