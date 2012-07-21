@@ -1,5 +1,18 @@
 jQuery(document).ready(function ($) {
 
+    var feedurls = [
+	"http://blag.meznak.net/atom.xml",
+	"http://rix.si/atom.xml",
+	"http://citizengadget.com/rss",
+	"http://fab.heatsynclabs.org/rss",
+	"http://hsl-sem.tumblr.com/rss",
+	"http://www.blogger.com/feeds/8608412012855561239/posts/default",
+	"http://www.makermaximum.com/atom.xml",
+	"http://feeds.feedburner.com/teamdroid/RSS",
+	"http://www.toddfun.com/feed/",
+	"http://willbradley.name/feed/"	     
+    ];
+
     var flickrImages = [];
     var flickrLimit = 20;
     var previousIdx = 9999;
@@ -47,6 +60,8 @@ jQuery(document).ready(function ($) {
 		//timeout = setInterval(newImage, 10000)
 		initialize(flickrImages);
 	    });
+
+	var feed = new feedr(feedurls);
 
 
     });
