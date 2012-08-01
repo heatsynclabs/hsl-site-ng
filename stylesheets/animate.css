@@ -16,14 +16,14 @@
 }
 
 /*
-  Animation requires 'alternate' designator for Chrome, image flicking occures otherwise
+  Animation requires 'alternate' designator for Chrome, image flickering occurs otherwise
 */
 .fade-test {
-    -webkit-animation: fade 1s ease-in infinite 3s alternate;
-    -moz-animation:    fade 1s ease-in infinite 3s alternate;
-    -o-animation:      fade 1s ease-in infinite 3s alternate;
-    -ms-animation:     fade 1s ease-in infinite 3s alternate;
-    animation:         fade 1s ease-in infinite 3s alternate;
+    -webkit-animation: fade 1s ease-out infinite 3s alternate;
+    -moz-animation:    fade 1s ease-out infinite 3s alternate;
+    -o-animation:      fade 1s ease-out infinite 3s alternate;
+    -ms-animation:     fade 1s ease-out infinite 3s alternate;
+    animation:         fade 1s ease-out infinite 3s alternate;
 }
 
 @-webkit-keyframes fade {

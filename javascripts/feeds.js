@@ -1,90 +1,64 @@
 /*
   ToDo: Finish coding feeds stuff
 */
-google.load("feeds", "1");    
+google.load("feeds", "1");
 
-function feedr(feedurls) {
-
-    var container = document.getElementById("feed");
+function feedr(feedurls,nentries,callbackitem,callbackfeed,callbackdone) {
 
     var feedrinit = function() {
-	var feeds=[];
-	var loaded=0;
 
-	for (var f=0; f<feedurls.length; f++) {
-	    var feed = new google.feeds.Feed(feedurls[f]);
-	    feed.setNumEntries(1);
+        var loaded=0;
 
-	    feed.load(function(result) {
-		if (!result.error) {
-		    feeds.push(result.feed);
-		    feed.rooturl = /^http:\/\/[^\/]*/i.exec(result.feed.link);
-		    for (var i = 0; i < result.feed.entries.length; i++) {
+        for (var f=0; f<feedurls.length; f++) {
+            var feed = new google.feeds.Feed(feedurls[f]);
+            feed.setNumEntries(nentries);
 
-			var entry = result.feed.entries[i];
-			var rei = /<\s*img(?:\s+[^>]*)?\s+src\s*=\s*[\"\']?([^\"\'\s]*)[^>]*>/gi;
-			var rai, imgs = [];
-			
-			while (rai = rei.exec(entry.content)) {
-			    if (/^\//.exec(rai[1])) rai[1] = feed.rooturl+rai[1];
-			    imgs.push(rai[1]);
-			}
+            feed.load(function(result) {
+                if (!result.error) {
+                    feed.rooturl = /^http:\/\/[^\/]*/i.exec(result.feed.link)[0];
+                    for (var i = 0; i < result.feed.entries.length; i++) {
 
-			entry.imgs = imgs;
-			entry.date = new Date(entry.publishedDate);
-			entry.intro = entry.content.replace(/<[^>]*>/g,"").
-			    replace(/^\s+/,"").substr(0,137).replace(/\S*$/,"");
-		    }
-		} else {
-		    console.log("Unable to load feed: " + feedurls[f]);
-		}
-		
-		loaded++;	    
-		container.innerHTML = "<h4>feeds loading ... " + (loaded/feedurls.length)*100 + "%</h4>";
-		if (loaded==feedurls.length) {
-		    finishedEntries();
-		}
-	    });
+                        var entry = result.feed.entries[i];
+                        var rei = /<\s*img(?:\s+[^>]*)?\s+src\s*=\s*[\"\']?([^\"\'\s]*)[^>]*>/gi;
+                        var rai, imgs = [];
 
-	}
-	
-	var compareFeeds = function(A, B) {
-	    return A.entries[0].date.getTime() < B.entries[0].date.getTime();
-	}
+                        while (rai = rei.exec(entry.content)) {
+                            if (/^\//.exec(rai[1])) rai[1] = feed.rooturl+rai[1];
+                            if (rai[1]) {
+                                //console.log(entry.link +":"+rai[1]+"\n --- "+rai[0]);
+                                imgs.push(rai[1]);
+                            }
+                        }
 
-	var finishedEntries = function() {
-	    feeds.sort(compareFeeds);
-	    container.innerHTML="<h2>Feeds:</h2>";
-	    for (var f=0; f<feeds.length; f++) {
-		var feed = feeds[f];
-		var entry = feed.entries[0];
+                        if (imgs)
+                            entry.imgs = imgs;
 
-		var div = document.createElement("div");
+                        entry.blogurl = feed.rooturl.replace(/^http:\/\//,"");
+                        entry.author = (result.feed.author?result.feed.author:entry.blogurl);
+                        entry.date = new Date(entry.publishedDate);
+                        entry.intro = entry.content.replace(/<[^>]*>/g,"").
+                            replace(/^\s+/,"").substr(0,137).replace(/\S*$/,"");
+                        entry.feedtitle = result.feed.title;
+                        entry.feedlink = result.feed.link;
 
-		div.innerHTML = 
-    		    "<h3>"+entry.title+"</h3>"+
-    		    "<h4>"+(feed.author?" by "+feed.author:"")+" on "+entry.date.toLocaleDateString()+"</h4>"+
-		    "<img src='"+entry.imgs[0]+"'/>"+
-    		    "<p>"+entry.intro+"... (<a href='"+entry.link+"'>more</a>)</p>";
-		
-		//div.appendChild(document.createTextNode(entry.content));
-		container.appendChild(div);
-	    }
-	    
-	}
-	
+                        if (typeof(callbackitem)==='function')
+                            callbackitem.call(this,entry);
+                    }
+                } else {
+                    console.log("Unable to load feed: " + feedurls[f]);
+                }
 
-	//var div = document.createElement("div");
-	
-	// div.innerHTML = "<img src='"+imgs[0]+"'/>"+
-	// 	"<h3>"+entry.title+"</h3>"+
-	// 	(result.feed.author?"<h4> by "+result.feed.author+"</h4>":"")+
-	// 	"<p>"+intro+"... (<a href='"+entry.link+"'>more</a>)</p>";
-	
-	// //div.appendChild(document.createTextNode(entry.content));
-	// container.appendChild(div);
+                loaded++;
+
+                if (typeof(callbackfeed)==='function')
+                    callbackfeed.call(this,loaded,result.feed);
+
+                if (loaded==feedurls.length && typeof(callbackdone)==='function')
+                    callbackdone.call(this);
+
+            });
+        }
     }
 
     google.setOnLoadCallback(feedrinit);
-
 }

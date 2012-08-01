@@ -1,0 +1,19 @@
+google.load("feeds", "1");
+
+function ginitialize() {
+    var feed = new google.feeds.Feed("http://blag.meznak.net/atom.xml");
+    feed.load(function(result) {
+	if (!result.error) {
+	    var container = document.getElementById("feed");
+	    for (var i = 0; i < result.feed.entries.length; i++) {
+		var entry = result.feed.entries[i];
+		var div = document.createElement("div");
+		div.innerHTML = "<h4>"+entry.title+"</h4>"+entry.content;
+		div.appendChild(document.createTextNode(entry.content));
+		container.appendChild(div);
+	    }
+	}
+    });
+}
+
+google.setOnLoadCallback(ginitialize);

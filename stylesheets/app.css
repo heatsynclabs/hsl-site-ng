@@ -69,12 +69,27 @@ div.logo{
 }
 
 img.logoimage{
-    height:75px; 
-    width: 303px; 
-    margin-bottom:-3; 
+/*
+    height:75px;
+    width: 303px;
+*/
+    margin-bottom:-3;
     float:left
 }
 
 div.imageTag {
     text-align: center;
+}
+
+div.feedr0, div.feedr1 {
+    padding: 1em;
+    border: 0px ;
+}
+
+div.feedr0 {
+    background: rgba(46,48,46, 0.8);
+}
+
+div.feedr1 {
+    background: rgba(76,78,76, 0.8);
 }

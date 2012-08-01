@@ -22,6 +22,7 @@
 .rw-words, .rw-font {
     font-size:1.75em;
 }
+
 .rw-words-1 span{
     position: absolute;
     opacity: 0;
@@ -32,41 +33,41 @@
     -ms-animation: rotateWord 16s linear infinite 0s;
     animation: rotateWord 16s linear infinite 0s;
 }
-.rw-words-1 span:nth-child(2) { 
-    -webkit-animation-delay: 4s; 
-    -moz-animation-delay: 4s; 
-    -o-animation-delay: 4s; 
-    -ms-animation-delay: 4s; 
-    animation-delay: 4s; 
+.rw-words-1 span:nth-child(2) {
+    -webkit-animation-delay: 4s;
+    -moz-animation-delay: 4s;
+    -o-animation-delay: 4s;
+    -ms-animation-delay: 4s;
+    animation-delay: 4s;
 }
-.rw-words-1 span:nth-child(3) { 
-    -webkit-animation-delay: 8s; 
-    -moz-animation-delay: 8s; 
-    -o-animation-delay: 8s; 
-    -ms-animation-delay: 8s; 
-    animation-delay: 8s; 
+.rw-words-1 span:nth-child(3) {
+    -webkit-animation-delay: 8s;
+    -moz-animation-delay: 8s;
+    -o-animation-delay: 8s;
+    -ms-animation-delay: 8s;
+    animation-delay: 8s;
 
 }
-.rw-words-1 span:nth-child(4) { 
+.rw-words-1 span:nth-child(4) {
     -webkit-animation-delay: 12s;
-    -moz-animation-delay: 12s; 
-    -o-animation-delay: 12s; 
-    -ms-animation-delay: 12s; 
-    animation-delay: 12s; 
+    -moz-animation-delay: 12s;
+    -o-animation-delay: 12s;
+    -ms-animation-delay: 12s;
+    animation-delay: 12s;
 }
-.rw-words-1 span:nth-child(5) { 
-    -webkit-animation-delay: 16s; 
-    -moz-animation-delay: 16s; 
-    -o-animation-delay: 16s; 
-    -ms-animation-delay: 16s; 
-    animation-delay: 16s; 
+.rw-words-1 span:nth-child(5) {
+    -webkit-animation-delay: 16s;
+    -moz-animation-delay: 16s;
+    -o-animation-delay: 16s;
+    -ms-animation-delay: 16s;
+    animation-delay: 16s;
 }
-.rw-words-1 span:nth-child(6) { 
+.rw-words-1 span:nth-child(6) {
     -webkit-animation-delay: 20s;
-    -moz-animation-delay: 20s; 
-    -o-animation-delay: 20s; 
-    -ms-animation-delay: 20s; 
-    animation-delay: 20s; 
+    -moz-animation-delay: 20s;
+    -o-animation-delay: 20s;
+    -ms-animation-delay: 20s;
+    animation-delay: 20s;
 }
 @-webkit-keyframes rotateWord {
     0% { opacity: 0; }
