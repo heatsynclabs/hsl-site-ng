@@ -1,0 +1,52 @@
+.gallery-space, .gallery-foreground, .gallery-background {
+    height:512px;
+    width:1024px;
+}
+
+.gallery-foreground {
+    position:absolute;
+    border: 1px solid red;
+    z-index: -1;
+}
+
+.gallery-background {
+    position:absolute;
+    border: 1px solid blue;
+    z-index: -2;
+}
+
+/*
+  Animation requires 'alternate' designator for Chrome, image flicking occures otherwise
+*/
+.fade-test {
+    -webkit-animation: fade 1s ease-in infinite 3s alternate;
+    -moz-animation:    fade 1s ease-in infinite 3s alternate;
+    -o-animation:      fade 1s ease-in infinite 3s alternate;
+    -ms-animation:     fade 1s ease-in infinite 3s alternate;
+    animation:         fade 1s ease-in infinite 3s alternate;
+}
+
+@-webkit-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-o-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-ms-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
