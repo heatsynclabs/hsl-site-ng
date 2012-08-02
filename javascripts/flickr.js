@@ -10,29 +10,26 @@
  * Removed JQuery dependency.
  */
 
-var JFFextend = function(original, extended) {
-    for ( var key in (extended || {})) {
-        if (typeof(original[key]) === 'object')
-            original[key] = JFFextend(original[key],extended[key]);
-        else
-            original[key] = extended[key];
-    }
-    return original;
-};
-
 jflickrfeed = function(settings,callback){
 
-    settings=JFFextend({flickrbase:'http://api.flickr.com/services/feeds/',
-                          feedapi:'photos_public.gne',
-                          limit:20,
-                          qstrings:{lang:'en-us',
-                                    format:'json',
-                                    jsoncallback:'_jffcallback'},
-                          cleanDescription:true,
-                          useTemplate:true,
-                          itemTemplate:'',
-                          itemCallback:function(){}},
-                         settings);
+    settings=(
+        function extend(orig, ext) {
+            for ( var key in (ext || {})) {
+                if (typeof(orig[key]) !== 'object') orig[key] = ext[key];
+                else orig[key] = extend(orig[key],ext[key]);
+            } return orig;
+        })({
+            flickrbase:'http://api.flickr.com/services/feeds/',
+            feedapi:'photos_public.gne',
+            limit:20,
+            qstrings:{lang:'en-us',
+                      format:'json',
+                      jsoncallback:'_jffcallback'},
+            cleanDescription:true,
+            useTemplate:true,
+            itemTemplate:'',
+            itemCallback:function(){}
+        },settings );
 
     var url=settings.flickrbase+settings.feedapi+'?';
     var first=true;
@@ -43,9 +40,6 @@ jflickrfeed = function(settings,callback){
     }
 
     return (function(){
-        //var $container=$(this);
-        var container=this;
-
         _jffcallback = function(data){
             for ( var i = 0; i<data.items.length; i++) {
                 var item = data.items[i];
@@ -71,14 +65,13 @@ jflickrfeed = function(settings,callback){
                             var rgx=new RegExp('{{'+key+'}}','g');
                             template=template.replace(rgx,item[key]);
                         }
-                        container.append(template);
+                        this.template += template;
                     }
-                    settings.itemCallback.call(container,item);
+                    settings.itemCallback.call(this,item);
                 }
             }
-            if(typeof(callback) === 'function'){
-                callback.call(container,data);
-            }
+            if(typeof(callback) === 'function')
+                callback.call(this,data);
         };
 
         var script = document.createElement('script');
