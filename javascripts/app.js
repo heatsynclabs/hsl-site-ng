@@ -100,7 +100,7 @@ jQuery(document).ready(function ($) {
         };
 
         // Do the jquery flick goodness
-        $.jflickrfeed(
+        jflickrfeed(
             {
                 limit: flickrLimit,
                 qstrings: {
