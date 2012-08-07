@@ -5,11 +5,65 @@
     <link rel="stylesheet" href="stylesheets/animate.css">
   </head>
   <body>
-    <div id="gallery_space" class="gallery-space">
-    <div id="gallery"       class="gallery-foreground"></div>
-    <div id="gallery_next"  class="gallery-background"></div>
+
+    <div style="width:1000;height:100;margin:0 auto;">
+      <div class="golden" style="position:absolute;z-index:-3;width:405;height:35;margin:65 0 0 100;border-radius: 25 25 0 0;"></div>
+
+      <div style="float:left;">
+        <img class="logoimage"src="images/header-image.png" />
+      </div>
+      <div style="float:right;">
+        <div class="share">
+          <img src="images/flickr.png"   width="48" height="48" alt="Flickr">
+          <img src="images/twitter.png"  width="48" height="48" alt="Twitter">
+          <img src="images/facebook.png" width="48" height="48" alt="Face">
+        </div>
+      </div>
     </div>
-    <div id="feed"></div>
+
+    <div class="centered">
+      <div style="float:left;background-color:rgba(25, 25, 25, 0.8);width:275;padding:1em;clear:both;">
+        <p style="padding:0;margin:0">
+          HeatSync Labs...
+        </p>
+        <div class="rw-font" style="height:1em;"></div>
+        <div class="rw-words rw-words-1">
+          <span>is a community workshop</span>
+          <span>is open FREE to the public M-F 7p-10p</span>
+          <span>is a 501(c)3 not for profit</span>
+          <span>has no staff, only a passionate community, including you!</span>
+        </div>
+        <div class="rw-font" style="height:5.5em;"></div>
+        <p> Bring your projects and your passion and JOIN US! </p>
+        <div style="text-align: center">
+          HeatSync Labs<br/>
+          140 W. Main St<br/>
+          Mesa, AZ 85201<br/><br/>
+        </div>
+      </div>
+
+      <div style="float:right;background-color:rgba(25, 25, 25, 0.8);width:275;padding:10;" id="google-calendar">
+        <div class="calendar-entries">
+          <h3>Calendar</h3>
+          <i> ( loading <span class="loading-anim">...</span> )</i>
+        </div>
+      </div>
+    </div>
+
+    <a href="" id="gallery-link">
+      <div id="gallery_space" class="gallery-space">
+        <div id="gallery"       class="gallery-foreground"></div>
+        <div id="gallery_next"  class="gallery-background"></div>
+      </div>
+    </a>
+
+    <div class="centered">
+      <div class="golden" id="gallery-text">
+        ...
+      </div>
+    </div>
+
+    <div id="feed" class="feed-centered"></div>
     <div><ul id="output"></ul></div>
 
     <script src="https://www.google.com/jsapi"></script>
@@ -17,5 +71,6 @@
     <script src="javascripts/flickr.js"></script>
     <script src="javascripts/gallery2.js"></script>
     <script src="javascripts/feedinit.js"></script>
+    <script src="javascripts/calendar.js"></script>
   </body>
 </html>

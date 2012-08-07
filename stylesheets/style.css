@@ -1,74 +1,123 @@
+#google-calendar h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    margin-bottom: .25em;
+}
 
-.rw-wrapper{
-    width: 80%;
-    position: relative;
-    margin: 110px auto 0 auto;
-    padding: 10px;
+#google-calendar ul {
+    margin-top: .25em;
+    margin-bottom: .5em;
 }
-.rw-sentence{
+
+#google-calendar ul li {
+    font-size: .9em;
+    /*overflow: hidden;*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.calendar-entries {
+    font-size: .9em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 380;
+}
+
+#google-calendar {
+    max-height: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.centered {
+    min-width:1050;
+    max-width:1200;
+    margin: 0 auto;
+}
+
+.feed-centered {
+    min-width:1024;
+    max-width:1100;
+    margin: 0 auto;
+}
+
+#gallery-text {
+    font-size: 1.5em;
+    height: 1em;
+    margin-top:0em;
+    padding: .5em 1em .5em 1em;
+    width:700;
+    float:right;
+    text-align: center;
+    border-radius: 0 1.25em 1.25em 1.25em
+}
+
+#gallery-text h4 {
     margin: 0;
-    text-align: left;
-    text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #ccc;
 }
-.rw-sentence span{
-    font-size: 200%;
-    font-weight: normal;
+
+#feed a {
+    color: #e92;
+    font-weight: bold;
 }
+
+#feed li {
+    border-bottom-right-radius: 35;
+}
+
+.golden {
+    background: rgba(213, 137, 24, 0.6);
+}
+
 .rw-words{
     display: inline;
     float: left;
-    font-weight: bold;
 }
 .rw-words, .rw-font {
+    font-weight: bold;
     font-size:1.75em;
 }
 
 .rw-words-1 span{
     position: absolute;
     opacity: 0;
-    padding-right: 2em;
-    -webkit-animation: rotateWord 16s linear infinite 0s;
-    -moz-animation: rotateWord 16s linear infinite 0s;
-    -o-animation: rotateWord 16s linear infinite 0s;
-    -ms-animation: rotateWord 16s linear infinite 0s;
-    animation: rotateWord 16s linear infinite 0s;
+    width: 275;
+    padding: 0;
+    -webkit-animation: rotateWord 40s linear infinite 0s;
+    -moz-animation: rotateWord 40s linear infinite 0s;
+    -o-animation: rotateWord 40s linear infinite 0s;
+    -ms-animation: rotateWord 40s linear infinite 0s;
+    animation: rotateWord 40s linear infinite 0s;
 }
 .rw-words-1 span:nth-child(2) {
-    -webkit-animation-delay: 4s;
-    -moz-animation-delay: 4s;
-    -o-animation-delay: 4s;
-    -ms-animation-delay: 4s;
-    animation-delay: 4s;
+    -webkit-animation-delay: 10s;
+    -moz-animation-delay: 10s;
+    -o-animation-delay: 10s;
+    -ms-animation-delay: 10s;
+    animation-delay: 10s;
 }
 .rw-words-1 span:nth-child(3) {
-    -webkit-animation-delay: 8s;
-    -moz-animation-delay: 8s;
-    -o-animation-delay: 8s;
-    -ms-animation-delay: 8s;
-    animation-delay: 8s;
-
-}
-.rw-words-1 span:nth-child(4) {
-    -webkit-animation-delay: 12s;
-    -moz-animation-delay: 12s;
-    -o-animation-delay: 12s;
-    -ms-animation-delay: 12s;
-    animation-delay: 12s;
-}
-.rw-words-1 span:nth-child(5) {
-    -webkit-animation-delay: 16s;
-    -moz-animation-delay: 16s;
-    -o-animation-delay: 16s;
-    -ms-animation-delay: 16s;
-    animation-delay: 16s;
-}
-.rw-words-1 span:nth-child(6) {
     -webkit-animation-delay: 20s;
     -moz-animation-delay: 20s;
     -o-animation-delay: 20s;
     -ms-animation-delay: 20s;
     animation-delay: 20s;
+
 }
+.rw-words-1 span:nth-child(4) {
+    -webkit-animation-delay: 30s;
+    -moz-animation-delay: 30s;
+    -o-animation-delay: 30s;
+    -ms-animation-delay: 30s;
+    animation-delay: 30s;
+}
+
 @-webkit-keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -webkit-transform: translateY(-2em); }

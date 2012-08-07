@@ -3,18 +3,25 @@
     width:1024px;
     margin-left: auto;
     margin-right: auto;
+    padding:0 0 6 0;
+}
+
+.gallery-foreground, .gallery-background {
+    position:absolute;
+    padding:0;
 }
 
 .gallery-foreground {
-    position:absolute;
     border: 3px solid #333;
     z-index: -1;
+    border-radius: 0 110 0 110;
 }
 
 .gallery-background {
-    position:absolute;
     border: 3px solid #999;
     z-index: -2;
+    opacity: 0;
+    border-radius: 0 115 0 115;
 }
 
 /*
@@ -51,4 +58,13 @@
 @keyframes fade {
     0%   { opacity: 1; }
     100% { opacity: 0; }
+}
+
+
+.loading-anim {
+    -webkit-animation: fade 1s ease-out infinite 1s alternate;
+    -moz-animation:    fade 1s ease-out infinite 1s alternate;
+    -o-animation:      fade 1s ease-out infinite 1s alternate;
+    -ms-animation:     fade 1s ease-out infinite 1s alternate;
+    animation:         fade 1s ease-out infinite 1s alternate;
 }

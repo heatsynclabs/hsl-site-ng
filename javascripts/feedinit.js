@@ -34,7 +34,7 @@ var imgCheck = function() {
 }
 
 var feedDone = function(loaded,feed) {
-    feedcontainer.innerHTML = "<h4>feeds loading ... " + (loaded/feedurls.length)*100 + "%</h4>";
+    feedcontainer.innerHTML = "<h4>feeds loading ... " + ((loaded/feedurls.length)*100).toFixed(2) + "%</h4>";
     feedImgs[feed.link] = [];
     feedLoaded[feed.link] = true;
 
@@ -56,9 +56,9 @@ var finishedEntries = function() {
     for (var i=0; i<entries.length; i++) {
         var entry = entries[i];
         var div = document.createElement("div");
-        div.innerHTML = "<div style='" + (entry.imgs.length?"background:url("+entry.imgs[0]+");":"") +
-            "margin-top:1em;height:10em;width:60em;z-index:-1;position:absolute;left:5em;background-repeat:no-repeat;'></div>" +
-            "<div class='feedr"+i%2+"' style='min-height:11em;margin-bottom:1em;padding-bottom:0'>" +
+        div.innerHTML = "<div class='round' style='" + (entry.imgs.length?"background:url("+entry.imgs[0]+");":"") +
+            "margin-top:1em;height:10em;width:800;z-index:-1;position:absolute;background-repeat:no-repeat;margin-left:1em'></div>" +
+            "<div class='feedr"+i%2+"' style='min-height:11em;padding-bottom:0;padding-left:2em'>" +
             "<h3><a href='"+entry.link+"'>"+(entry.title?entry.title:entry.blogurl)+"</a></h3>"+
             "<h4>"+(entry.author?" by "+entry.author:"")+" on "+entry.date.toLocaleDateString()+"</h4>"+
             "<p>"+entry.intro+"... (<a href='"+entry.link+"'>more</a>)</p>" +
