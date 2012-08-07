@@ -41,7 +41,9 @@ function insertAgenda(e) {
             doy_last = doy;
             var h = d.getHours();
             var m = d.getMinutes();
-            r += "<li>" + (h==0?12:(h>12?h-12:h)) + ":" + (m<10?"0":"") + m + "<span class='ampm'>" + (h>=12?"PM":"AM") + "</span>  " + t + "</li>\n";
+            var ampm = (h>=12?"PM":"AM");
+            var time = (h==0?12:(h>12?h-12:h)) + ":" + (m<10?"0":"") + m;
+            r += "<li> <span class='"+ampm+"'>" + time + "</span> " + t + "</li>\n";
         }
     }
     r += "</ul></div>\n";
@@ -50,18 +52,16 @@ function insertAgenda(e) {
 
 var url = "http://www.google.com/calendar/feeds/heatsynclabs.org_p9rcn09d64q56m7rg07jptmrqc%40group.calendar.google.com/public/full"+
     "?alt=json-in-script&callback={{callback}}&orderby=starttime&max-results=10&singleevents=true&sortorder=ascending&futureevents=true";
+console.log("Hello world!");
 
 try {
     // Use a web worker when possible due to high latency in calendar feed
-    if(typeof(Worker)!=='undefined') {
-        var worker = new Worker('javascripts/importJSONP-worker.js');
-        worker.onmessage = function(event){ insertAgenda(event.data); };
-        worker.postMessage(url.replace(/{{callback}}/gi,"postMessage"));
-    } else {
-        throw("no web workers");
-    }
+    var worker = new Worker('javascripts/importJSONP-worker.js');
+    worker.onmessage = function(event){ insertAgenda(event.data); };
+    worker.postMessage(url.replace(/{{callback}}/gi,"postMessage"));
 } catch(e) {
     // Or fall back to standard JSONP call
+    console.log("Unable to use web worker: " + e.message);
     setTimeout(function(){
         var script = document.createElement('script');
         script.src = url.replace(/{{callback}}/gi,"insertAgenda");

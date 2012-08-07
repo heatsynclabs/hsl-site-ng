@@ -81,24 +81,3 @@ img.logoimage{
 div.imageTag {
     text-align: center;
 }
-
-.round {
-    border-radius: 25;
-}
-
-div.feedr0, div.feedr1 {
-    padding: 1em;
-    border: 0px ;
-    border-radius: 35;
-    border-bottom: 1px solid #000;
-}
-
-div.feedr0 {
-    background: rgba(46,48,46, 0.8);
-    border-top: 3px solid #333;
-}
-
-div.feedr1 {
-    background: rgba(76,78,76, 0.8);
-    border-top: 3px solid #555;
-}

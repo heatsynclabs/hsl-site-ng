@@ -41,16 +41,24 @@
     margin-left: 0;
     padding-left: .5em;
     list-style-position:inside;
+    list-style-type: none;
 }
 
 #google-calendar ul li {
-    /*font-size: .8em;*/
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: no-content;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding-left: 1em;
-    text-indent: -1em;
-    margin-left: 0;
+    padding-left: .5em;
+    text-indent: 0;
+    margin-left: -.5em;
+}
+
+#google-calendar ul li:before {
+    content: "\25B2";
+    vertical-align: super;
+    font-size: .6em;
+    padding-right: .25em;
 }
 
 .calendar-entries {
@@ -61,9 +69,19 @@
     max-height: 460;
 }
 
-.ampm {
+.AM:after, .PM:after {
     font-size: .6em;
-    vertical-align: text-top;
+    padding-right: .25em;
+}
+
+.AM:after {
+    content: "AM";
+    vertical-align: sub;
+}
+
+.PM:after {
+    content: "PM";
+    vertical-align: super;
 }
 
 #google-calendar {
@@ -264,4 +282,33 @@
     -o-animation:      fade 1s ease-out infinite 1s alternate;
     -ms-animation:     fade 1s ease-out infinite 1s alternate;
     animation:         fade 1s ease-out infinite 1s alternate;
+}
+
+
+.feed {
+    min-height:6em;
+    padding: 1em 1em 0 2em;
+}
+
+.feed h3, .feed h4 {
+    display: inline;
+    font-size: 1.4em;
+}
+
+.feed h4 {
+    font-size: 1.2em;
+}
+
+div.feedr0, div.feedr1, .round {
+    border-radius: 35;
+    border-top: 3px solid rgba(255,255,255,.1);
+    border-bottom: 3px solid rgba(0,0,0,.2);
+}
+
+div.feedr0 {
+    background: rgba(35,35,35, 0.9);
+}
+
+div.feedr1 {
+    background: rgba(50,50,50, 0.9);
 }
