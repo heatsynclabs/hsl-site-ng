@@ -1,3 +1,33 @@
+.gallery-space, .gallery-foreground, .gallery-background {
+    height:512px;
+    width:1024px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.gallery-space {
+    padding:0 3 6 3;
+}
+
+.gallery-foreground, .gallery-background {
+    position:absolute;
+    padding:0;
+}
+
+.gallery-foreground {
+    border: 3px solid #333;
+    z-index: -1;
+    border-radius: 0 110 0 110;
+}
+
+.gallery-background {
+    border: 3px solid #999;
+    z-index: -2;
+    opacity: 0;
+    border-radius: 0 115 0 115;
+}
+
 #google-calendar h3 {
     margin-top: 0;
     font-size: 1.5em;
@@ -7,25 +37,37 @@
 #google-calendar ul {
     margin-top: .25em;
     margin-bottom: .5em;
+    text-indent: 0;
+    margin-left: 0;
+    padding-left: .5em;
+    list-style-position:inside;
 }
 
 #google-calendar ul li {
-    font-size: .9em;
-    /*overflow: hidden;*/
+    /*font-size: .8em;*/
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    padding-left: 1em;
+    text-indent: -1em;
+    margin-left: 0;
 }
 
 .calendar-entries {
-    font-size: .9em;
+    /*font-size: .9em;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 380;
+    max-height: 460;
+}
+
+.ampm {
+    font-size: .6em;
+    vertical-align: text-top;
 }
 
 #google-calendar {
-    max-height: 400;
+    max-height: 480;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -37,7 +79,7 @@
     margin: 0 auto;
 }
 
-.feed-centered {
+.text-centered, .feed-centered {
     min-width:1024;
     max-width:1100;
     margin: 0 auto;
@@ -47,7 +89,7 @@
     font-size: 1.5em;
     height: 1em;
     margin-top:0em;
-    padding: .5em 1em .5em 1em;
+    padding: .5em 1em;
     width:700;
     float:right;
     text-align: center;
@@ -79,6 +121,7 @@
     display: inline;
     float: left;
 }
+
 .rw-words, .rw-font {
     font-weight: bold;
     font-size:1.75em;
@@ -95,6 +138,7 @@
     -ms-animation: rotateWord 40s linear infinite 0s;
     animation: rotateWord 40s linear infinite 0s;
 }
+
 .rw-words-1 span:nth-child(2) {
     -webkit-animation-delay: 10s;
     -moz-animation-delay: 10s;
@@ -102,6 +146,7 @@
     -ms-animation-delay: 10s;
     animation-delay: 10s;
 }
+
 .rw-words-1 span:nth-child(3) {
     -webkit-animation-delay: 20s;
     -moz-animation-delay: 20s;
@@ -110,6 +155,7 @@
     animation-delay: 20s;
 
 }
+
 .rw-words-1 span:nth-child(4) {
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
@@ -127,6 +173,7 @@
     80% { opacity: 0; }
     100% { opacity: 0; }
 }
+
 @-moz-keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -moz-transform: translateY(-2em); }
@@ -136,6 +183,7 @@
     80% { opacity: 0; }
     100% { opacity: 0; }
 }
+
 @-o-keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -o-transform: translateY(-2em); }
@@ -145,6 +193,7 @@
     80% { opacity: 0; }
     100% { opacity: 0; }
 }
+
 @-ms-keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -ms-transform: translateY(-2em); }
@@ -154,6 +203,7 @@
     80% { opacity: 0; }
     100% { opacity: 0; }
 }
+
 @keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; transform: translateY(-2em); }
@@ -163,9 +213,55 @@
     80% { opacity: 0; }
     100% { opacity: 0; }
 }
+
 @media screen and (max-width: 768px){
     .rw-sentence { font-size: 18px; }
 }
+
 @media screen and (max-width: 320px){
     .rw-sentence { font-size: 9px; }
+}
+
+/*
+  Animation requires 'alternate' designator for Chrome, image flickering occurs otherwise
+*/
+.fade-test {
+    -webkit-animation: fade 3s ease-out infinite 7s alternate;
+    -moz-animation:    fade 3s ease-out infinite 7s alternate;
+    -o-animation:      fade 3s ease-out infinite 7s alternate;
+    -ms-animation:     fade 3s ease-out infinite 7s alternate;
+    animation:         fade 3s ease-out infinite 7s alternate;
+}
+
+@-webkit-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-moz-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-o-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@-ms-keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.loading-anim {
+    -webkit-animation: fade 1s ease-out infinite 1s alternate;
+    -moz-animation:    fade 1s ease-out infinite 1s alternate;
+    -o-animation:      fade 1s ease-out infinite 1s alternate;
+    -ms-animation:     fade 1s ease-out infinite 1s alternate;
+    animation:         fade 1s ease-out infinite 1s alternate;
 }
