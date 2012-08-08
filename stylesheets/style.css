@@ -25,7 +25,14 @@
     border: 3px solid #999;
     z-index: -2;
     opacity: 0;
-    border-radius: 0 115 0 115;
+    border-radius: 0 118 0 118;
+}
+
+#google-calendar {
+    max-height: 450;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #google-calendar h3 {
@@ -61,46 +68,53 @@
     padding-right: .25em;
 }
 
-.calendar-entries {
-    /*font-size: .9em;*/
+#calendar-entries {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-height: 460;
 }
 
-.AM:after, .PM:after {
+.calendar-noverflow {
+    overflow: hidden;
+    min-height: 1.5em;
+}
+
+.transition-calendar {
+    margin-top: -435px;
+    padding-top: 435px;
+    -webkit-transition: padding 1.5s ease;
+    -moz-transition: padding 1.5s ease;
+    -ms-transition: padding 1.5s ease;
+    transition: padding 1.5s ease;
+}
+
+.AM, .PM {
     font-size: .6em;
     padding-right: .25em;
 }
 
-.AM:after {
-    content: "AM";
+.AM {
     vertical-align: sub;
 }
 
-.PM:after {
-    content: "PM";
+.PM {
     vertical-align: super;
 }
 
-#google-calendar {
-    max-height: 480;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .centered {
-    min-width:1050;
-    max-width:1200;
+    min-width:1100;
+    max-width:1300;
     margin: 0 auto;
 }
 
 .text-centered, .feed-centered {
-    min-width:1024;
-    max-width:1100;
+    width:1100;
     margin: 0 auto;
+}
+
+.feed-centered {
+    clear: both;
+    margin-top: 2em;
 }
 
 #gallery-text {
@@ -286,8 +300,15 @@
 
 
 .feed {
-    min-height:6em;
-    padding: 1em 1em 0 2em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height:4em;
+    padding: 1em 0 0 2em;
+    border-radius: 35;
+    border-top: .25em solid rgba(255,255,255,.1);
+    border-bottom: .25em solid rgba(0,0,0,.25);
+    /*margin-right: 1em;*/
 }
 
 .feed h3, .feed h4 {
@@ -299,16 +320,15 @@
     font-size: 1.2em;
 }
 
-div.feedr0, div.feedr1, .round {
-    border-radius: 35;
-    border-top: 3px solid rgba(255,255,255,.1);
-    border-bottom: 3px solid rgba(0,0,0,.2);
+.feed p {
+    margin-top: .25em;
+    padding-top: 0;
 }
 
 div.feedr0 {
-    background: rgba(35,35,35, 0.9);
+    background: rgba(30,30,30, 0.92);
 }
 
 div.feedr1 {
-    background: rgba(50,50,50, 0.9);
+    background: rgba(60,60,60, 0.92);
 }

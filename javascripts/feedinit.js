@@ -57,14 +57,14 @@ var finishedEntries = function() {
         var entry = entries[i];
         var div = document.createElement("div");
         div.innerHTML =
-            "<div class='feed round' style='" +
+            "<div class='feed' style='border-radius:40;" +
             (entry.imgs.length?"background:url("+entry.imgs[0]+") no-repeat 50%;":"") +
-            "width:1050px;z-index:-1;position:absolute;margin:0 auto;'></div>" +
-            "<div class='feed feedr"+i%2+"'>" +
+            "z-index:-1;'></div>" +
+            "<div class='feed feedr"+i%2+"' style='margin-top:-5.5em;'>" +
             "<h3><a href='"+entry.link+"'>"+(entry.title?entry.title:entry.blogurl)+"</a></h3>"+
             "<h4>"+(entry.author?" by "+entry.author:"")+" on "+entry.date.toLocaleDateString()+"</h4>"+
-            "<p>"+entry.intro+"... (<a href='"+entry.link+"'>more</a>)</p>" +
-            "</div>";
+            "<p>"+entry.contentSnippet+"</p></div>";
+
         feedcontainer.appendChild(div);
     }
 }
