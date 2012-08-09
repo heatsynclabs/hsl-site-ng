@@ -7,7 +7,7 @@
 }
 
 .post-gallery-space {
-    height: 160;
+    height: 170;
 }
 
 .gallery-space {
@@ -405,7 +405,7 @@ div.feedr1 {
     border: 3px solid #333;
     border-top: 0;
     width: 914;
-    height: 160;
+    height: 162;
     margin-left: 110;
     border-radius: 0 0 75 75;
     background-color: #1a1a1a;
@@ -416,10 +416,12 @@ div.feedr1 {
 
 .hidden-cam {
     opacity: 0;
+    visibility: hidden;
 }
 
 .visible-cam {
     opacity: 1;
+    visibility: visible;
 /*
     -webkit-transition: opacity 1s ease;
     -moz-transition: opacity 1s ease;

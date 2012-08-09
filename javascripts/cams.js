@@ -44,6 +44,10 @@ camDiv.style.height = bgHeight + 2*borderWidth;
             o.appendChild(img);
             if (typeof(onload)==='function') img.onload = onload;
             if (className) img.className = className;
+            img.onerror = function() {
+                console.log("fire z missiles!");
+                loadImg(o,url,onload,className);
+            };
         };
 
         function bgImageLoaded() {
