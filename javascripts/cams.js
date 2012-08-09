@@ -4,10 +4,10 @@ var bgWidth = 160;
 var bgHeight = 120;
 var bgSize =  bgWidth + " " + bgHeight;
 var numCams = 3;
-var borderWidth = 2;
+var borderWidth = 3;
 
 var camDiv = document.getElementById("cameras");
-var divWidth = bgWidth + 4;
+var divWidth = bgWidth + 2*borderWidth;
 
 var camUrl = "http://live.heatsynclabs.org/snapshot.php?camera=";
 //var camUrl = "http://thingiverse-production.s3.amazonaws.com/renders/95/5e/69/37/a8/nerf-cartridge_preview_large.jpg?";
@@ -24,7 +24,7 @@ allCams.bg.className = "allcams-bg";
 camDiv.appendChild(allCams.fg);
 camDiv.appendChild(allCams.bg);
 
-camDiv.style.height = bgHeight + 4;
+camDiv.style.height = bgHeight + 2*borderWidth;
 
 // Thanks to http://friendlybit.com/js/lazy-loading-asyncronous-javascript/
 (function() {
@@ -35,17 +35,15 @@ camDiv.style.height = bgHeight + 4;
         var loadTime = 0;
         var lastAnimate = 0;
 
-        function loadImg(o,url,onload) {
+        function loadImg(o,url,onload,className) {
             var img = document.createElement('img');
             img.src = url+"&date="+(new Date()).getTime();
             img.width = bgWidth;
             img.height = bgHeight;
             if (o.hasChildNodes()) { o.removeChild(o.firstChild); }
             o.appendChild(img);
-            if (typeof(onload)==='function') {
-                img.onload = onload;
-            }
-            else o.onload = undefined;
+            if (typeof(onload)==='function') img.onload = onload;
+            if (className) img.className = className;
         };
 
         function bgImageLoaded() {
@@ -61,6 +59,7 @@ camDiv.style.height = bgHeight + 4;
         };
 
         function fgImageLoaded() {
+            this.className += " visible-cam";
             if (++fgLoaded == numCams) {
                 fgLoaded = 0;
                 for (var i=0; i<cams.length; i++) {
@@ -73,6 +72,10 @@ camDiv.style.height = bgHeight + 4;
             }
         };
 
+        function fml(i,z){
+            return (i==0?"first":(i<z-1?"middle":"last"))
+        }
+
         function swapCams(e) {
             var temp = allCams.fg;
             allCams.fg = allCams.bg;
@@ -81,19 +84,20 @@ camDiv.style.height = bgHeight + 4;
             allCams.bg.className = "allcams-bg";
 
             allCams.bg.style.opacity = 1;
-            for (var i=0; i<cams.length; i++) {
+            for (var i=0; i<numCams; i++) {
                 var cam = cams[i];
                 var temp = cam.fg;
                 cam.fg = cam.bg;
                 cam.bg = temp;
 
                 loadImg(cam.bg,cam.url,bgImageLoaded);
-                cam.bg.className = "cam-bg";
-                cam.fg.className = "cam-fg";
+                cam.bg.className = "cam-bg cam-"+fml(i,numCams)+"-bg";
+                cam.fg.className = "cam-fg cam-"+fml(i,numCams)+"-fg";
             }
             allCams.fg.className = "allcams-fg";
-            var time = (new Date()).getTime();
-            console.log((time-lastAnimate)/1000 + " seconds since last cam animation");
+            var date = new Date();
+            var time = date.getTime();
+            console.log((time-lastAnimate)/1000 + " seconds since last cam animation on " + date);
             loadTime = lastAnimate = time;
         };
 
@@ -103,20 +107,19 @@ camDiv.style.height = bgHeight + 4;
                         url: camUrl+(i+1),
                         num: i };
 
-            for (var v in { "fg":"", "bg":"" }) {
-                cam[v].className = "cam-"+v;
+            for (var v in allCams) {
+                cam[v].className = "cam-"+v+" cam-"+fml(i,numCams)+"-"+v;
                 cam[v].style.width = bgWidth;
                 cam[v].style.height = bgHeight;
                 allCams[v].appendChild(cam[v]);
             }
 
-            loadImg(cam.fg,cam.url,fgImageLoaded);
+            loadImg(cam.fg,cam.url,fgImageLoaded,"hidden-cam");
             cams.push(cam);
         }
         loadTime = lastAnimate = (new Date()).getTime();
-
-        allCams.bg.style.marginLeft = allCams.fg.style.marginLeft = camDiv.offsetWidth-bgWidth-(bgWidth+5)*(numCams-1);
-
+        allCams.bg.style.marginLeft = allCams.fg.style.marginLeft =
+            camDiv.offsetWidth-(bgWidth+borderWidth)*numCams+borderWidth;
         var addSwapListener = function(e,f) {
             e.addEventListener("animationiteration", f, false);
             e.addEventListener("webkitAnimationIteration", f, false);

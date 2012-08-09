@@ -1,9 +1,13 @@
-.gallery-space, .gallery-foreground, .gallery-background {
+.gallery-space, .gallery-foreground, .gallery-background, .post-gallery-space {
     height:512px;
     width:1024px;
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.post-gallery-space {
+    height: 160;
 }
 
 .gallery-space {
@@ -114,7 +118,7 @@
 
 .feed-centered {
     clear: both;
-    margin-top: 2em;
+/*    margin-top: 2em;*/
 }
 
 #gallery-text {
@@ -146,7 +150,7 @@
 }
 
 .golden {
-    background: rgba(213, 137, 24, 0.6);
+    background: rgba(170, 90, 20, 1);
 }
 
 .rw-words{
@@ -336,7 +340,9 @@ div.feedr1 {
 #cameras {
     width: 1024;
     margin: 0 auto;
-    clear: both;
+    position: absolute;
+    white-space: nowrap;
+    margin-top: 3em;
 }
 
 .allcams-fg, .allcams-bg {
@@ -350,15 +356,14 @@ div.feedr1 {
 }
 
 .cam-fg, .cam-bg {
-    float: left;
+    display: table-cell;
     overflow: hidden;
-    border: 2px solid #333;
-    border-radius: 40 0 40 0;
+    border: 3px solid #333;
+    background-color:#000;
 }
 
 .cam-bg {
-    border: 2px solid #999;
-    border-radius: 42 0 42 0;
+    border: 3px solid #999;
 }
 
 .cam-fade {
@@ -369,3 +374,56 @@ div.feedr1 {
     animation:         fade 1s ease-out infinite 0s alternate;
 }
 
+.cam-first-fg {
+    border-radius: 40 0 0 0;
+}
+
+.cam-middle-fg {
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+.cam-last-fg {
+    border-radius: 0 0 40 0;
+}
+
+.cam-first-bg {
+    border-radius: 43 0 0 0;
+}
+
+.cam-middle-bg {
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+.cam-last-bg {
+    border-radius: 0 0 43 0;
+}
+
+#links {
+    position: absolute;
+    float: left;
+    border: 3px solid #333;
+    border-top: 0;
+    width: 914;
+    height: 160;
+    margin-left: 110;
+    border-radius: 0 0 75 75;
+    background-color: #1a1a1a;
+    z-index: -3;
+    border-bottom-left-radius: 100 162;
+    border-bottom-right-radius: 100 162;
+}
+
+.hidden-cam {
+    opacity: 0;
+}
+
+.visible-cam {
+    opacity: 1;
+/*
+    -webkit-transition: opacity 1s ease;
+    -moz-transition: opacity 1s ease;
+    -ms-transition: opacity 1s ease;
+    transition: opacity 1s ease;
+*/
+}
