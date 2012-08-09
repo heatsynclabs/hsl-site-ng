@@ -332,3 +332,40 @@ div.feedr0 {
 div.feedr1 {
     background: rgba(60,60,60, 0.92);
 }
+
+#cameras {
+    width: 1024;
+    margin: 0 auto;
+    clear: both;
+}
+
+.allcams-fg, .allcams-bg {
+    position: absolute;
+    z-index: 3;
+}
+
+.allcams-bg {
+    z-index: 2;
+    opacity: 0;
+}
+
+.cam-fg, .cam-bg {
+    float: left;
+    overflow: hidden;
+    border: 2px solid #333;
+    border-radius: 40 0 40 0;
+}
+
+.cam-bg {
+    border: 2px solid #999;
+    border-radius: 42 0 42 0;
+}
+
+.cam-fade {
+    -webkit-animation: fade 1s ease-out infinite 0s alternate;
+    -moz-animation:    fade 1s ease-out infinite 0s alternate;
+    -o-animation:      fade 1s ease-out infinite 0s alternate;
+    -ms-animation:     fade 1s ease-out infinite 0s alternate;
+    animation:         fade 1s ease-out infinite 0s alternate;
+}
+
