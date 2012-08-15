@@ -150,7 +150,7 @@
 }
 
 .golden {
-    background: rgba(170, 90, 20, 1);
+    background-color: #C37600;
 }
 
 .rw-words{
@@ -428,4 +428,34 @@ div.feedr1 {
     -ms-transition: opacity 1s ease;
     transition: opacity 1s ease;
 */
+}
+
+a.netinfo {
+    position:relative; /*this is the key*/
+    z-index:10;
+    color:#666;
+    text-decoration:none
+}
+
+a.info:hover{
+    z-index:11;
+    background-color:#ff0
+}
+
+a.netinfo span.popup {
+    display: none;
+}
+
+a.netinfo:hover span.popup {
+    display:block;
+    position:absolute;
+    margin-top: -.5em;
+/*    top:-.1em;*/
+    left:-12em;
+    width:12em;
+    border:1px solid #333;
+    background: rgba(30,30,30, 0.92);
+    color:#fff;
+/*    text-align: center;*/
+    padding: .5em;
 }

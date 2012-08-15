@@ -9,8 +9,12 @@ var borderWidth = 3;
 var camDiv = document.getElementById("cameras");
 var divWidth = bgWidth + 2*borderWidth;
 
+var netinfo = document.getElementById("netinfo-span");
+
+
 var camUrl = "http://live.heatsynclabs.org/snapshot.php?camera=";
 //var camUrl = "http://thingiverse-production.s3.amazonaws.com/renders/95/5e/69/37/a8/nerf-cartridge_preview_large.jpg?";
+var intranetUrl = "http://intranet.heatsynclabs.org:1337/data.php";
 
 var maxRefresh = 14000;
 
@@ -34,6 +38,28 @@ camDiv.style.height = bgHeight + 2*borderWidth;
         var bgLoaded = 0;
         var loadTime = 0;
         var lastAnimate = 0;
+
+        function displayNetinfo(info) {
+            netinfo.innerHTML = "";
+            for (var i=0; i<info.length; i++) {
+                if (info[i].match(/^[^.]/)) {
+                    netinfo.innerHTML += info[i]+"<br />\n";
+                }
+            }
+        }
+
+        function loadNetinfo() {
+            var req = new XMLHttpRequest;
+            req.overrideMimeType("application/json");
+            req.open('GET', intranetUrl, true);
+            var target = this;
+            req.onload  = function() {
+                if (req.status == 200 && req.responseText.match(/\[(?:"[^"]*"(?:, )?)*\]/))
+                    eval("displayNetinfo("+req.responseText+")");
+            };
+            req.send(null);
+            setTimeout(loadNetinfo,15000);
+        }
 
         function loadImg(o,url,onload,className) {
             var img = document.createElement('img');
@@ -128,6 +154,8 @@ camDiv.style.height = bgHeight + 2*borderWidth;
             e.addEventListener("animationiteration", f, false);
             e.addEventListener("webkitAnimationIteration", f, false);
         }
+
+        loadNetinfo();
 
         addSwapListener(allCams.fg,swapCams);
         addSwapListener(allCams.bg,swapCams);
