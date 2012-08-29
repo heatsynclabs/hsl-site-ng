@@ -5,6 +5,9 @@ var bgHeight = 120;
 var bgSize =  bgWidth + " " + bgHeight;
 var numCams = 3;
 var borderWidth = 3;
+var repeatDelayMin = 250;
+var repeatDelayMax = 10000;
+var repeatDelay = repeatDelayMin;
 
 var camDiv = document.getElementById("cameras");
 var divWidth = bgWidth + 2*borderWidth;
@@ -71,8 +74,9 @@ camDiv.style.height = bgHeight + 2*borderWidth;
             if (typeof(onload)==='function') img.onload = onload;
             if (className) img.className = className;
             img.onerror = function() {
-                console.log("fire z missiles!");
-                loadImg(o,url,onload,className);
+              console.log("fire z missiles!");
+              repeatDelay=(2*repeatDelay>repeatDelayMax?repeatDelayMax:2*repeatDelay);
+              setTimeout(function(){loadImg(o,url,onload,className);},repeatDelay);
             };
         };
 
