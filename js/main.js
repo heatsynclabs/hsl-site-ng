@@ -35,8 +35,8 @@
       'cams',
     ],
 
-
     function (util,stylist,Feeds,Calendar,gallery,cams) {
+
       lazyload(function(){cams.init()});
 /*
       flickr.init( util.extendCopy( flickr.defaults, {

@@ -83,7 +83,13 @@
 
     <div id="feed" class="feed-centered"></div>
 
-    <script src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%7D%5D%7D"></script>
+<!--
+    insert rant here about how jsapi is literally the worst thing ever for breaking the DOM when loading through require.
+    jsapi libraries *must* be loaded before main, don't even bother with an autoload callback to define, your efforts are futile.
+ript>
+  -->
+    <script src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%7D%5D%7D">
+    </script>
     <script src="js/require.js"></script>
 
 <!--
