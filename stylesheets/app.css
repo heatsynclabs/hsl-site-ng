@@ -70,12 +70,10 @@ div.logo{
 }
 
 img.logoimage{
-/*
-    height:75px;
-    width: 303px;
-*/
-    margin-bottom:-3;
-    float:left
+
+    height:115;
+
+    margin-bottom:5;
 }
 
 div.imageTag {
