@@ -81,6 +81,14 @@
 .calendar-noverflow {
     overflow: hidden;
     min-height: 1.5em;
+    clear: both;
+}
+
+#calendar-refresh {
+    float: left;
+    padding-left: .5em;
+    margin-top: -.1em;
+    font-size: 1.75em;
 }
 
 .transition-calendar {
@@ -459,7 +467,7 @@ a.netinfo span.popup {
 a.netinfo:hover span.popup {
     display:block;
     position:absolute;
-    margin-top: -.5em;
+    margin-top: -2em;
 /*    top:-.1em;*/
     left:-12em;
     width:12em;

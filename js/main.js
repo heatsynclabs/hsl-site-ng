@@ -14,6 +14,8 @@
      window.addEventListener('load',f,false));
   };
 
+  localStorage = localStorage || {};
+
   require.config({
     waitSeconds: 60,
     baseUrl:'js',
@@ -83,17 +85,17 @@
       }));
       console.log(swap.config);
 */
-      var lastNetInfoDate = new Date(0);
+      var lastNetInfoTime = 0;
 
       var netinfoAnchor = document.getElementById("netinfo-anchor");
       var netinfoSpan = document.getElementById("netinfo-span");
 
       var netinfoLoad = function() {
-        var now = new Date();
+        var now = new Date().getTime();
         // Throttle requests to every 10 seconds
-        if ((now.getTime() - lastNetInfoDate.getTime())/1000.0 > 10) {
+        if ((now - lastNetInfoTime)/1000.0 > 10) {
           console.log("Doing intranet require");
-          lastNetInfoDate = now;
+          lastNetInfoTime = now;
           require(["text!http://intranet.heatsynclabs.org:1337/data.php"],
                   function(data){
                     var machines = (/^\s*\[\s*"(.*)"\s*\]\s*$/g).exec(data)[1].split(/"\s*,\s*"/);
@@ -110,7 +112,6 @@
       };
 
       netinfoAnchor.onmouseover = netinfoLoad;
-
       netinfoLoad();
 
 /*
@@ -207,14 +208,26 @@
       lazyload(function(){
 
         var calendarDiv = document.getElementById("calendar-entries");
+        var calRefresh = document.getElementById("calendar-refresh");
         var calAnimateDiv = document.getElementById("calendar-animation");
+        var calLoaded = false;
+
+        if (localStorage.hslCalendar) {
+          calendarDiv.innerHTML = localStorage.hslCalendar;
+          calLoaded = true;
+          calRefresh.innerHTML = '<span class="loading-anim">&#x267B;</span>';
+        } else {
+          calendarDiv.innerHTML = '[<strong><span class="loading-anim"> loading ... </span></strong>]';
+        }
 
         function insertAgenda(e) {
           console.log("in insert agenda");
           var doy_last = 0;
           var time_first;
           var r = "";
-          calAnimateDiv.className = 'transition-calendar';
+          if (!calLoaded) calAnimateDiv.className = 'transition-calendar';
+          else calRefresh.innerHTML = "";
+
           for (var i=0; i<e.feed.entry.length; i++) {
             console.log("checking entry");
             var entry=e.feed.entry[i];
@@ -239,7 +252,7 @@
             }
           }
           r += "</ul>\n";
-          calendarDiv.innerHTML = r;
+          localStorage.hslCalendar = calendarDiv.innerHTML = r;
           console.log("done agenda");
         };
 
