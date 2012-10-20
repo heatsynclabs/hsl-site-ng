@@ -83,12 +83,36 @@
       }));
       console.log(swap.config);
 */
+      var lastNetInfoDate = new Date(0);
 
-      require(["text!http://intranet.heatsynclabs.org:1337/data.php"],
-              function(data){console.log(data);}
-             );
+      var netinfoAnchor = document.getElementById("netinfo-anchor");
+      var netinfoSpan = document.getElementById("netinfo-span");
 
-      console.log("Did intranet require");
+      var netinfoLoad = function() {
+        var now = new Date();
+        // Throttle requests to every 10 seconds
+        if ((now.getTime() - lastNetInfoDate.getTime())/1000.0 > 10) {
+          console.log("Doing intranet require");
+          lastNetInfoDate = now;
+          require(["text!http://intranet.heatsynclabs.org:1337/data.php"],
+                  function(data){
+                    var machines = (/^\s*\[\s*"(.*)"\s*\]\s*$/g).exec(data)[1].split(/"\s*,\s*"/);
+                    var text = "";
+                    console.log("machines:",machines);
+                    for (var i=0; i<machines.length; i++) {
+                      if (!machines[i].match("^\\.")) {
+                        text += machines[i] + "<br />";
+                      }
+                    }
+                    netinfoSpan.innerHTML = text || "...";
+                  });
+        }
+      };
+
+      netinfoAnchor.onmouseover = netinfoLoad;
+
+      netinfoLoad();
+
 /*
       stylist.onLoad(function(){
         stylist.addStyle(".gallery-space","border: 1px solid red;");
@@ -129,6 +153,7 @@
         var imgCheck = function() {
           if (this.width>10 && this.height>10) {
             feedImgs[this.feedlink].push(this);
+            console.log(this.src,this.width+"x"+this.height);
           } else {
           }
         }
@@ -148,7 +173,7 @@
             }
           }
           feedLoaded[feed.feedurl] = true;
-          console.log("got feed item");
+          console.log("*got feed item:*",feed.link);
         }
 
         var finishedEntries = function() {

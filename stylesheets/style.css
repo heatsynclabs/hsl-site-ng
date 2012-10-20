@@ -137,7 +137,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #ccc;
+    color: #eee;
 }
 
 #feed a {
@@ -153,6 +153,11 @@
     background-color: #C37600;
 }
 
+.rw-words {
+    font-size: .95em;
+}
+
+/*
 .rw-words{
     display: inline;
     float: left;
@@ -174,7 +179,7 @@
     -ms-animation: rotateWord 40s linear infinite 0s;
     animation: rotateWord 40s linear infinite 0s;
 }
-
+*/
 .rw-words-1 span:nth-child(2) {
     -webkit-animation-delay: 10s;
     -moz-animation-delay: 10s;
@@ -302,6 +307,11 @@
     animation:         fade 1s ease-out infinite 1s alternate;
 }
 
+#feed {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
 
 .feed {
     overflow: hidden;
@@ -458,4 +468,38 @@ a.netinfo:hover span.popup {
     color:#fff;
 /*    text-align: center;*/
     padding: .5em;
+}
+
+.share a {
+    text-decoration: none;
+}
+
+.map a {
+    text-decoration: none;
+    color: #99e;
+    font-size: 1.05em;
+}
+
+.map a:hover {
+    color: #bbf;
+}
+
+.supportButton {
+    border-radius: 25;
+    text-align: center;
+    margin: 1.5em;
+    padding: 0.5em;
+    border: 2px solid #333;
+}
+
+a.supportLink {
+    text-decoration: none;
+    color: #eee;
+    font-size: 1.1em;
+}
+
+a.supportLink:hover .supportButton {
+    border-color: #ccc;
+    color: #fff;
+    background-color: #A35600;
 }
