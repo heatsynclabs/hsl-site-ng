@@ -6,60 +6,32 @@
   <body>
 
     <div style="width:1000;height:100;margin:0 auto;">
-      <div class="golden" style="position:absolute;z-index:-3;width:405;height:35;margin:65 0 0 100;border-radius: 25 25 0 0;"></div>
+      <div style="position:absolute;z-index:-3;width:405;height:35;margin:65 0 0 100;border-radius: 25 25 0 0;"></div>
 
       <div style="float:left;">
-        <img class="logoimage"src="images/header-image.png" />
+        <img class="logoimage"src="images/heatsync labs logo - orange - latest -tagline.png" />
       </div>
       <div style="float:right; padding:40px 90px 0px 10px;">
         <div class="share">
-          <a target="_blank" href="http://www.flickr.com/groups/heatsynclabs/pool/">
-            <img src="images/flickr.png"   width="48" height="48" alt="Flickr" />
-          </a>
-          <a target="_blank" href="http://twitter.com/heatsynclabs/">
-            <img src="images/twitter.png"  width="48" height="48" alt="Twitter" />
-          </a>
-          <a target="_blank" href="http://www.facebook.com/HeatSyncLabs">
-            <img src="images/facebook.png" width="48" height="48" alt="Face" />
-          </a>
+          <a href="http://maps.google.com"><img src="images/maps2.png" width="48" height="48" alt="Google Map"></a>
+          <a href="http://www.flickr.com/groups/heatsynclabs/pool/"><img src="images/flickr.png" width="48" height="48" alt="Flickr"></a>
+          <a href="http://twitter.com/heatsynclabs/"><img src="images/twitter.png"   width="48" height="48" alt="Twitter"></a>
+          <a href="http://www.facebook.com/HeatSyncLabs"><img src="images/facebook.png"  width="48" height="48" alt="Face"></a>
+          <a class="button" href="http://www.heatsynclabs.org/get-involved/membership/">Support Us</a>
         </div>
       </div>
     </div>
 
     <div class="centered">
-      <div style="float:left;background-color:rgba(25, 25, 25, 0.9);width:16em;padding:1em 1.5em 1em 1em;clear:both;">
-        <p style="padding:0;margin:0;font-size:1.1em;">
-          HeatSync Labs...
-        </p>
-<!--        <div class="rw-font" style="height:1em;"></div>-->
-        <div class="rw-words rw-words-1">
-          <ul>
-            <li>is a <u>community</u> workshop</li>
-            <li>is open <b>FREE</b> to the public
-              <span style="white-space:nowrap; font-size:1.05em;">* Monday-Friday 7pm-10pm</span></li>
-            <li>is a 501(c)3 <i>not for profit</i></li>
-            <li>has <u>no staff</u>, only a passionate community, including <b>you</b>!</li>
-          </ul>
-        </div>
-<!--        <div class="rw-font" style="height:5.5em;"></div>-->
-        <p> Bring your projects, your passion, and <b><i>JOIN US</i></b>!</p>
-        <div style="display: table; margin: 0 auto;" class="map">
-          <a target="_blank" href="https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=140+W+Main+St,+Mesa,+AZ&aq=&sll=33.414432,-111.877743&sspn=0.115633,0.154324&vpsrc=0&t=h&ie=UTF8&hq=&hnear=140+W+Main+St,+Mesa,+Maricopa,+Arizona&z=17&iwloc=A">
-            <div style="text-align:center;float:left">
-              HeatSync Labs<br/>
-              140 W. Main St<br/>
-              Mesa, AZ 85201
-            </div>
-            <div style="float:left; padding: 0.4em 0 0 1em;">
-              <img src="images/maps.png" width="48" height="48" alt="Google Maps" />
-            </div>
-          </a>
-        </div>
-        <a href="http://www.heatsynclabs.org/get-involved/membership/" class="supportLink">
-          <div class="golden supportButton">
-            Support Us
-          </div>
-        </a>
+      <div style="float:left;background-color:rgba(25, 25, 25, 0.8);width:16em;padding:1em 1.5em 1em 1em;clear:both;">
+        HeatSync Labs...
+        <ul>
+            <li>is a community workshop
+            <li>is open FREE to the public M-F 7p-10p</span>
+            <li>is a 501(c)3 not for profit</span>
+            <li>has no staff, only a passionate community, including you!</span>
+        </ul>
+        <p>Bring your projects and your passion and JOIN US! </p>
       </div>
 
       <div style="float:right;background-color:rgba(25, 25, 25, 0.8);width:19em;padding:1em;" id="google-calendar">
@@ -90,9 +62,9 @@
       <div id="links">
         <div style="padding: 3em 0 0 3em">
           <ul>
-            <li>About Us
-            <li>Board
-            <li>Membership, Sponsorship, & Donations
+            <li><a href="http://groups.google.com/group/heatsynclabs">Say Hi on Google Groups</a>
+            <li><a href="http://wiki.heatsynclabs.org/wiki/faq">FAQ</a>
+            <li><a href="http://wiki.heatsynclabs.org/wiki">Wiki</a>
           </ul>
         </div>
       </div>
@@ -106,8 +78,7 @@
 <!--
     insert rant here about how jsapi is literally the worst thing ever for breaking the DOM when loading through require.
     jsapi libraries *must* be loaded before main, don't even bother with an autoload callback to define, your efforts are futile.
-ript>
-  -->
+-->
     <script src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%7D%5D%7D">
     </script>
     <script src="js/require.js"></script>
@@ -116,15 +87,5 @@ ript>
     <script src="js/curl/curl.js"></script>
 -->
     <script src="js/main.js"></script>
-
-<!--
-    <script src="javascripts/cams.js"></script>
-    <script src="javascripts/flickr.js"></script>
-    <script src="javascripts/gallery2.js"></script>
-    <script src="javascripts/feeds.js"></script>
-    <script src="javascripts/feedinit.js"></script>
-    <script src="javascripts/calendar.js"></script>
--->
-
   </body>
 </html>
