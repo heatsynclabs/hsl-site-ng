@@ -51,7 +51,7 @@ define(function() {
   };
 
   /*
-    Given some configuration apply to array of __init__ functions.
+    Given some configuration apply to array of __init__ functions which take a config.
    */
   var extendInit = {
     init: function(config) {
@@ -65,7 +65,7 @@ define(function() {
     Given some query and callbacks construct a module url and require.
    */
   var importModule = function(config) {
-    config.fullurl = config.baseurl+config.id;
+    config.fullurl = config.baseurl + (config.id || "");
     var first = true;
     for (var key in config.qstrings) {
       config.fullurl += ( first ? '?' : '&' );
