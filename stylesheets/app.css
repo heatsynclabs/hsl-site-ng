@@ -5,27 +5,32 @@
  * --------------------------------------------------------------------------*/
 
 body {
-    background-color: black;
-    color: white;
-    font-family: Sans-Serif;
-    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAF0lEQVQIW2NkYGD4z8jIyMAoICAAZgAAFJcCNx9yICgAAAAASUVORK5CYII=) repeat;
-    /*background-size: 100% 100%;*/
+  background-color: black;
+  color: white;
+  font-family: Sans-Serif;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAF0lEQVQIW2NkYGD4z8jIyMAoICAAZgAAFJcCNx9yICgAAAAASUVORK5CYII=) repeat;
 }
 
 
 h1, h2, h3 {
-    font-family: "Times Roman",  times, serif;
-    color: #F3A608;
+  font-family: "Times Roman",  times, serif;
+  color: #F3A608;
 }
 
 h4 {
-    font-family: "Times Roman",  times,  serif;
-    color: white;
+  font-family: "Times Roman",  times,  serif;
+  color: white;
 }
 
 /* --------------------------------------------------------------------------
  * Top half styles
  * --------------------------------------------------------------------------*/
+
+.header {
+  width: 1000px;
+  height: 100px;
+  margin:0 auto;
+}
 
 div.main-image-div {
     -webkit-background-size: cover;
