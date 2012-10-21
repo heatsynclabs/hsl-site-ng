@@ -6,36 +6,39 @@
   <body>
 
     <div class="header">
-      <div style="position:absolute;z-index:-3;width:405;height:35;margin:65 0 0 100;border-radius: 25 25 0 0;"></div>
-
-      <div style="float:left;">
-        <img class="logoimage"src="images/heatsync labs logo - orange - latest -tagline.png" />
-      </div>
-      <div style="float:right;">
-        <div class="share">
-          <a href="http://maps.google.com"><img src="images/maps2.png" width="48" height="48" alt="Google Map"></a>
-          <a href="http://www.flickr.com/groups/heatsynclabs/pool/"><img src="images/flickr.png" width="48" height="48" alt="Flickr"></a>
-          <a href="http://twitter.com/heatsynclabs/"><img src="images/twitter.png"   width="48" height="48" alt="Twitter"></a>
-          <a href="http://www.facebook.com/HeatSyncLabs"><img src="images/facebook.png"  width="48" height="48" alt="Face"></a>
-          <a class="button" href="http://www.heatsynclabs.org/get-involved/membership/">Support Us</a>
-        </div>
+      <img class="logoimage" src="images/header-image.png" />
+      <div class="share">
+        <a href="http://maps.google.com">
+          <img src="images/maps2.png" class="external-logo" alt="Google Map">
+        </a>
+        <a href="http://www.flickr.com/groups/heatsynclabs/pool/">
+          <img src="images/flickr.png" class="external-logo" alt="Flickr">
+        </a>
+        <a href="http://twitter.com/heatsynclabs/">
+          <img src="images/twitter.png" class="external-logo" alt="Twitter">
+        </a>
+        <a href="http://www.facebook.com/HeatSyncLabs">
+          <img src="images/facebook.png" class="external-logo" alt="Face">
+        </a>
+        <a class="button" href="http://www.heatsynclabs.org/get-involved/membership/">Support Us</a>
       </div>
     </div>
 
     <div class="centered">
-      <div style="float:left;background-color:rgba(25, 25, 25, 0.8);width:16em;padding:1em 1.5em 1em 1em;clear:both;">
+      <div class="left-info">
         HeatSync Labs...
         <ul>
-            <li>is a community workshop
-            <li>is open FREE to the public M-F 7p-10p</span>
-            <li>is a 501(c)3 not for profit</span>
-            <li>has no staff, only a passionate community, including you!</span>
+          <li>is a community workshop</li>
+          <li>is open FREE to the public M-F 7p-10p</li>
+          <li>is a 501(c)3 not for profit</li>
+          <li>has no staff, only a passionate community, including you!</li>
         </ul>
-        <p>Bring your projects and your passion and JOIN US! </p>
+        <p>Bring your projects and your passion and JOIN US!</p>
       </div>
 
-      <div style="float:right;background-color:rgba(25, 25, 25, 0.8);width:19em;padding:1em;" id="google-calendar">
-        <div style="float:left;"><h3>Calendar</h3></div><div id="calendar-refresh"></div>
+      <div id="google-calendar" class="right-info">
+        <h3 class="title">Calendar</h3>
+        <span id="calendar-refresh"></span>
         <div class="calendar-noverflow">
           <div id="calendar-animation">
             <div id="calendar-entries">
@@ -47,30 +50,33 @@
 
     <a href="#" id="gallery-link">
       <span id="gallery_space" class="gallery-space">
-        <span id="gallery"       class="gallery-foreground"></span>
-        <span id="gallery_next"  class="gallery-background"></span>
+        <span id="gallery" class="gallery-foreground"></span>
+        <span id="gallery_next" class="gallery-background"></span>
       </span>
     </a>
 
-    <div class="text-centered" style="clear:both">
+    <div class="gallery-description">
       <div class="golden" id="gallery-text">
         ...
       </div>
     </div>
 
     <div class="post-gallery-space">
-      <div id="links">
-        <div style="padding: 3em 0 0 3em">
-          <ul>
-            <li><a href="http://groups.google.com/group/heatsynclabs">Say Hi on Google Groups</a>
-            <li><a href="http://wiki.heatsynclabs.org/wiki/faq">FAQ</a>
-            <li><a href="http://wiki.heatsynclabs.org/wiki">Wiki</a>
-          </ul>
+      <div class="links-container">
+        <ul>
+          <li><a href="http://groups.google.com/group/heatsynclabs">Say Hi on Google Groups</a>
+          <li><a href="http://wiki.heatsynclabs.org/wiki/faq">FAQ</a>
+          <li><a href="http://wiki.heatsynclabs.org/wiki">Wiki</a>
+        </ul>
+      </div>
+      <div id="cameras" class="camera-container">
+        <div class="camera-info">
+          <a href="#" class="netinfo" id="netinfo-anchor">
+            <span class="icon">&#119946;</span>
+            <span class="popup" id="netinfo-span">...</span>
+          </a>
         </div>
       </div>
-      <div id="cameras"><div style="float:right;margin-right:-1.25em;">
-          <a href="#" class="netinfo" id="netinfo-anchor"><span style="font-size:1.5em">&#119946;</span><span class="popup" id="netinfo-span">...</span></a>
-      </div></div>
     </div>
 
     <div id="feed" class="feed-centered"></div>
