@@ -33,16 +33,10 @@
 }
 
 #google-calendar {
-    max-height: 450;
+    max-height: 450px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-
-#google-calendar h3 {
-    margin-top: 0;
-    font-size: 1.5em;
-    margin-bottom: .25em;
 }
 
 #google-calendar ul {
@@ -81,6 +75,13 @@
 .calendar-noverflow {
     overflow: hidden;
     min-height: 1.5em;
+    clear: both;
+}
+
+#calendar-refresh {
+  padding-left: .5em;
+  margin-top: -.1em;
+  font-size: 1.75em;
 }
 
 .transition-calendar {
@@ -111,14 +112,11 @@
     margin: 0 auto;
 }
 
-.text-centered, .feed-centered {
-    width:1100;
-    margin: 0 auto;
-}
-
+.gallery-description,
 .feed-centered {
-    clear: both;
-/*    margin-top: 2em;*/
+  width: 1100px;
+  margin: 0 auto;
+  clear: both;
 }
 
 #gallery-text {
@@ -137,7 +135,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: #ccc;
+    color: #eee;
 }
 
 #feed a {
@@ -150,104 +148,7 @@
 }
 
 .golden {
-    background-color: #C37600;
-}
-
-.rw-words{
-    display: inline;
-    float: left;
-}
-
-.rw-words, .rw-font {
-    font-weight: bold;
-    font-size:1.75em;
-}
-
-.rw-words-1 span{
-    position: absolute;
-    opacity: 0;
-    width: 275;
-    padding: 0;
-    -webkit-animation: rotateWord 40s linear infinite 0s;
-    -moz-animation: rotateWord 40s linear infinite 0s;
-    -o-animation: rotateWord 40s linear infinite 0s;
-    -ms-animation: rotateWord 40s linear infinite 0s;
-    animation: rotateWord 40s linear infinite 0s;
-}
-
-.rw-words-1 span:nth-child(2) {
-    -webkit-animation-delay: 10s;
-    -moz-animation-delay: 10s;
-    -o-animation-delay: 10s;
-    -ms-animation-delay: 10s;
-    animation-delay: 10s;
-}
-
-.rw-words-1 span:nth-child(3) {
-    -webkit-animation-delay: 20s;
-    -moz-animation-delay: 20s;
-    -o-animation-delay: 20s;
-    -ms-animation-delay: 20s;
-    animation-delay: 20s;
-
-}
-
-.rw-words-1 span:nth-child(4) {
-    -webkit-animation-delay: 30s;
-    -moz-animation-delay: 30s;
-    -o-animation-delay: 30s;
-    -ms-animation-delay: 30s;
-    animation-delay: 30s;
-}
-
-@-webkit-keyframes rotateWord {
-    0% { opacity: 0; }
-    2% { opacity: 0; -webkit-transform: translateY(-2em); }
-    5% { opacity: 1; -webkit-transform: translateY(0px);}
-    17% { opacity: 1; -webkit-transform: translateY(0px); }
-    20% { opacity: 0; -webkit-transform: translateY(2em); }
-    80% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-@-moz-keyframes rotateWord {
-    0% { opacity: 0; }
-    2% { opacity: 0; -moz-transform: translateY(-2em); }
-    5% { opacity: 1; -moz-transform: translateY(0px);}
-    17% { opacity: 1; -moz-transform: translateY(0px); }
-    20% { opacity: 0; -moz-transform: translateY(2em); }
-    80% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-@-o-keyframes rotateWord {
-    0% { opacity: 0; }
-    2% { opacity: 0; -o-transform: translateY(-2em); }
-    5% { opacity: 1; -o-transform: translateY(0px);}
-    17% { opacity: 1; -o-transform: translateY(0px); }
-    20% { opacity: 0; -o-transform: translateY(2em); }
-    80% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-@-ms-keyframes rotateWord {
-    0% { opacity: 0; }
-    2% { opacity: 0; -ms-transform: translateY(-2em); }
-    5% { opacity: 1; -ms-transform: translateY(0px);}
-    17% { opacity: 1; -ms-transform: translateY(0px); }
-    20% { opacity: 0; -ms-transform: translateY(2em); }
-    80% { opacity: 0; }
-    100% { opacity: 0; }
-}
-
-@keyframes rotateWord {
-    0% { opacity: 0; }
-    2% { opacity: 0; transform: translateY(-2em); }
-    5% { opacity: 1; transform: translateY(0px);}
-    17% { opacity: 1; transform: translateY(0px); }
-    20% { opacity: 0; transform: translateY(2em); }
-    80% { opacity: 0; }
-    100% { opacity: 0; }
+  background-color: #C37600;
 }
 
 @media screen and (max-width: 768px){
@@ -302,17 +203,21 @@
     animation:         fade 1s ease-out infinite 1s alternate;
 }
 
+#feed {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
 
 .feed {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    height:4em;
-    padding: 1em 0 0 2em;
-    border-radius: 35;
-    border-top: .25em solid rgba(255,255,255,.1);
-    border-bottom: .25em solid rgba(0,0,0,.25);
-    /*margin-right: 1em;*/
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height:4em;
+  padding: 1em 0 0 2em;
+  border-radius: 35;
+  border-top: .25em solid rgba(255,255,255,.1);
+  border-bottom: .25em solid rgba(0,0,0,.25);
 }
 
 .feed h3, .feed h4 {
@@ -329,49 +234,60 @@
     padding-top: 0;
 }
 
-div.feedr0 {
+.feedr0 {
     background: rgba(30,30,30, 0.92);
 }
 
-div.feedr1 {
+.feedr1 {
     background: rgba(60,60,60, 0.92);
 }
 
-#cameras {
-    width: 1024;
-    margin: 0 auto;
-    position: absolute;
-    white-space: nowrap;
-    margin-top: 3em;
+.camera-container {
+  width: 1024;
+  margin: 0 auto;
+  position: absolute;
+  white-space: nowrap;
+  margin-top: 3em;
 }
 
-.allcams-fg, .allcams-bg {
-    position: absolute;
-    z-index: 3;
+.camera-info {
+  float: right;
+  margin-right: -1.25em;
+}
+
+.camera-info .icon {
+  font-size:1.5em;
+}
+
+.allcams-fg,
+.allcams-bg {
+  position: absolute;
+  z-index: 3;
 }
 
 .allcams-bg {
-    z-index: 2;
-    opacity: 0;
+  z-index: 2;
+  opacity: 0;
 }
 
-.cam-fg, .cam-bg {
-    display: table-cell;
-    overflow: hidden;
-    border: 3px solid #333;
-    background-color:#000;
+.cam-fg,
+.cam-bg {
+  display: table-cell;
+  overflow: hidden;
+  border: 3px solid #333;
+  background-color:#000;
 }
 
 .cam-bg {
-    border: 3px solid #999;
+  border: 3px solid #999;
 }
 
 .cam-fade {
-    -webkit-animation: fade 1s ease-out infinite 0s alternate;
-    -moz-animation:    fade 1s ease-out infinite 0s alternate;
-    -o-animation:      fade 1s ease-out infinite 0s alternate;
-    -ms-animation:     fade 1s ease-out infinite 0s alternate;
-    animation:         fade 1s ease-out infinite 0s alternate;
+  -webkit-animation: fade 1s ease-out infinite 0s alternate;
+  -moz-animation:    fade 1s ease-out infinite 0s alternate;
+  -o-animation:      fade 1s ease-out infinite 0s alternate;
+  -ms-animation:     fade 1s ease-out infinite 0s alternate;
+  animation:         fade 1s ease-out infinite 0s alternate;
 }
 
 .cam-first-fg {
@@ -399,35 +315,30 @@ div.feedr1 {
     border-radius: 0 0 43 0;
 }
 
-#links {
-    position: absolute;
-    float: left;
-    border: 3px solid #333;
-    border-top: 0;
-    width: 914;
-    height: 162;
-    margin-left: 110;
-    border-radius: 0 0 75 75;
-    background-color: #1a1a1a;
-    z-index: -3;
-    border-bottom-left-radius: 100 162;
-    border-bottom-right-radius: 100 162;
+.links-container {
+  position: absolute;
+  float: left;
+  border: 3px solid #333;
+  border-top: 0;
+  width: 866px;
+  height: 123px;
+  margin-left: 110px;
+  border-radius: 0 0 75px 75px;
+  background-color: #1a1a1a;
+  z-index: -3;
+  border-bottom-left-radius: 100px 162px;
+  border-bottom-right-radius: 100px 162px;
+  padding: 3em 0 0 3em;
 }
 
 .hidden-cam {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .visible-cam {
-    opacity: 1;
-    visibility: visible;
-/*
-    -webkit-transition: opacity 1s ease;
-    -moz-transition: opacity 1s ease;
-    -ms-transition: opacity 1s ease;
-    transition: opacity 1s ease;
-*/
+  opacity: 1;
+  visibility: visible;
 }
 
 a.netinfo {
@@ -449,7 +360,7 @@ a.netinfo span.popup {
 a.netinfo:hover span.popup {
     display:block;
     position:absolute;
-    margin-top: -.5em;
+    margin-top: -2em;
 /*    top:-.1em;*/
     left:-12em;
     width:12em;
@@ -460,34 +371,65 @@ a.netinfo:hover span.popup {
     padding: .5em;
 }
 
+.map a {
+    text-decoration: none;
+    color: #99e;
+    font-size: 1.05em;
+}
+
+.map a:hover {
+    color: #bbf;
+}
+
+.supportButton {
+    border-radius: 25;
+    text-align: center;
+    margin: 1.5em;
+    padding: 0.5em;
+    border: 2px solid #333;
+}
+
+a.supportLink {
+    text-decoration: none;
+    color: #eee;
+    font-size: 1.1em;
+}
+
+a.supportLink:hover .supportButton {
+    border-color: #ccc;
+    color: #fff;
+    background-color: #A35600;
+}
 
 .button {
-	vertical-align:top;
-	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	box-shadow:inset 0px 1px 0px 0px #fce2c1;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
-	background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
-	background-color:#ffc477;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #eeb44f;
-	display:inline-block;
-	color:#ffffff;
-	font-family:Times New Roman;
-	font-size:20px;
-	font-weight:bold;
-	padding:10px 24px;
-	text-decoration:none;
-	text-shadow:1px 1px 0px #cc9f52;
-}.button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
-	background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
-	background-color:#fb9e25;
-}.button:active {
-	position:relative;
-	top:1px;
+  vertical-align:top;
+  -moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+  box-shadow:inset 0px 1px 0px 0px #fce2c1;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffc477), color-stop(1, #fb9e25) );
+  background:-moz-linear-gradient( center top, #ffc477 5%, #fb9e25 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffc477', endColorstr='#fb9e25');
+  background-color:#ffc477;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #eeb44f;
+  display:inline-block;
+  color:#ffffff;
+  font-family:Times New Roman;
+  font-size:20px;
+  font-weight:bold;
+  padding:10px 24px;
+  text-decoration:none;
+  text-shadow:1px 1px 0px #cc9f52;
+}
+.button:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
+  background:-moz-linear-gradient( center top, #fb9e25 5%, #ffc477 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#ffc477');
+  background-color:#fb9e25;
+}
+.button:active {
+  position:relative;
+  top:1px;
 }

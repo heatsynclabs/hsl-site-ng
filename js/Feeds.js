@@ -9,7 +9,7 @@ define(['util'], function(util) {
       nentries: 20,
       callbackitem: undefined,
       callbackfeed: undefined,
-      callbackdone: undefined,
+      callbackdone: undefined
     },
 
     __init__: [function(config) {

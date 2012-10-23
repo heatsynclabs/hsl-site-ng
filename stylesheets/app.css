@@ -5,26 +5,34 @@
  * --------------------------------------------------------------------------*/
 
 body {
-    background-color: black;
-    color: white;
-    font-family: Sans-Serif;
+  background-color: black;
+  color: white;
+  font-family: Sans-Serif;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAF0lEQVQIW2NkYGD4z8jIyMAoICAAZgAAFJcCNx9yICgAAAAASUVORK5CYII=) repeat;
 }
 
+
 h1, h2, h3 {
-    font-family: "Times Roman",  times, serif;
-    color: #F3A608;
+  font-family: "Times Roman",  times, serif;
+  color: #F3A608;
 }
 
 h4 {
-    font-family: "Times Roman",  times,  serif;
-    color: white;
+  font-family: "Times Roman",  times,  serif;
+  color: white;
 }
 
 /* --------------------------------------------------------------------------
  * Top half styles
  * --------------------------------------------------------------------------*/
 
-div.main-image-div {
+.header {
+  width: 1000px;
+  height: 100px;
+  margin:0 auto;
+}
+
+.main-image-div {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -34,14 +42,14 @@ div.main-image-div {
     cursor: pointer
 }
 
-div.content {
+.content {
     margin-top: 10px ;
     padding: 20px 10px 20px 10px;
     overflow: hidden;
     cursor: default;
 }
 
-div.panel {
+.panel {
     background: rgba(46,48,46, 0.7) ;
     border: 0px ;
     color: white;
@@ -56,26 +64,60 @@ div.panel {
     text-decoration:none;
 }
 
-div.float {
+.float {
     margin-top: -20px ;
     background: rgba(213, 137, 24, 0.7);
 }
 
-div.share {
-    margin-top: 15%;
+.share {
+  float: right;
+  margin-top: 25px;
 }
 
-div.logo{
-    z-index:1;
+.share a {
+  text-decoration: none;
 }
 
-img.logoimage{
-
-    height:115;
-
-    margin-bottom:5;
+.external-logo {
+  width: 48px;
+  height: 48px;
 }
 
-div.imageTag {
-    text-align: center;
+.logo{
+  z-index: 1;
+}
+
+.logoimage{
+  height: 115px;
+  margin-bottom: 5px;
+}
+
+.imageTag {
+  text-align: center;
+}
+
+.left-info,
+.right-info {
+  background-color: rgba(25, 25, 25, 0.8);
+  margin-top: 25px;
+}
+
+.left-info {
+  float: left;
+  width: 16em;
+  padding: 1em 1.5em 1em 1em;
+  clear: both;
+}
+
+.right-info {
+  float: right;
+  width: 19em;
+  padding: 1em;
+}
+
+.right-info .title {
+  display: inline-block;
+  margin-top: 0;
+  font-size: 1.5em;
+  margin-bottom: .25em;
 }
