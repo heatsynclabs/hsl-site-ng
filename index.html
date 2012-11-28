@@ -1,97 +1,173 @@
-<html>
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
   <head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>HeatSync Labs</title>
+
+    <!-- Included CSS Files -->
+    <link rel="stylesheet" href="stylesheets/foundation.css">
     <link rel="stylesheet" href="stylesheets/app.css">
     <link rel="stylesheet" href="stylesheets/style.css">
+
+    <!--[if lt IE 9]>
+        <link rel="stylesheet" href="stylesheets/ie.css">
+        <![endif]-->
+
+    <script src="javascripts/modernizr.foundation.js"></script>
+
+    <!-- IE Fix for HTML5 Tags -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
   </head>
   <body>
 
-    <div class="header">
-      <img class="logoimage" src="images/header-image.png" />
-      <div class="share">
-        <a href="http://maps.google.com">
-          <img src="images/maps2.png" class="external-logo" alt="Google Map">
-        </a>
-        <a href="http://www.flickr.com/groups/heatsynclabs/pool/">
-          <img src="images/flickr.png" class="external-logo" alt="Flickr">
-        </a>
-        <a href="http://twitter.com/heatsynclabs/">
-          <img src="images/twitter.png" class="external-logo" alt="Twitter">
-        </a>
-        <a href="http://www.facebook.com/HeatSyncLabs">
-          <img src="images/facebook.png" class="external-logo" alt="Face">
-        </a>
-        <a class="button" href="http://www.heatsynclabs.org/get-involved/membership/">Support Us</a>
+    <div class="row header">
+      <div class="seven columns offset-by-one logo">
+        <img class="logoimage"src="images/header-image.png" />
+      </div>
+      <div class="three columns hide-for-small">
+        <div class="share">
+	        <a href="http://maps.google.com">
+	          <img src="images/maps2.png" class="external-logo" alt="Google Map">
+	        </a>
+	        <a href="http://www.flickr.com/groups/heatsynclabs/pool/">
+	          <img src="images/flickr.png" class="external-logo" alt="Flickr">
+	        </a>
+	        <a href="http://twitter.com/heatsynclabs/">
+	          <img src="images/twitter.png" class="external-logo" alt="Twitter">
+	        </a>
+	        <a href="http://www.facebook.com/HeatSyncLabs">
+	          <img src="images/facebook.png" class="external-logo" alt="Face">
+	        </a>
+	        <a class="button" href="http://www.heatsynclabs.org/get-involved/membership/">Support Us</a>
+        </div>
       </div>
     </div>
 
-    <div class="centered">
-      <div class="left-info">
-        HeatSync Labs...
-        <ul>
-          <li>is a community workshop</li>
-          <li>is open FREE to the public M-F 7p-10p</li>
-          <li>is a 501(c)3 not for profit</li>
-          <li>has no staff, only a passionate community, including you!</li>
-        </ul>
-        <p>Bring your projects and your passion and JOIN US!</p>
-      </div>
 
-      <div id="google-calendar" class="right-info">
-        <h3 class="title">Calendar</h3>
-        <span id="calendar-refresh"></span>
-        <div class="calendar-noverflow">
-          <div id="calendar-animation">
-            <div id="calendar-entries">
+    <div class="row" >
+      <div class="main-image-div" style="height:35em;width:100%;position:absolute;left:0;z-index:-1;" id="gallery">
+      </div>
+      <div class="main-image-div" style="height:35em;width:100%;position:absolute;left:0;z-index:-2;" id="gallery_next">
+      </div>
+      <div class="twelve columns centered">
+        <div class="row">
+          <div class="three columns">
+            <div class="panel content">
+              <p>
+                HeatSync Labs...
+              </p>
+              <div style="height:1em;"></div>
+              <div>
+                <span>is a community workshop</span>
+                <span>is open FREE to the public M-F 7p-10p</span>
+                <span>is a 501(c)3 not for profit</span>
+                <span>has no staff, only a passionate community, including you!</span>
+              </div>
+              <div style="height:5em;"></div>
+              <p> Bring your projects and your passion and JOIN US! </p>
+              <div style="text-align: center">
+                HeatSync Labs<br/>
+                140 W. Main St<br/>
+                Mesa, AZ 85201<br/><br/>
+              </div>
+            </div>
+          </div>
+          <div class="three columns offset-by-six">
+            <div class="panel content">
+              <div id="google-calendar">
+		        <h3 class="title">Calendar</h3>
+		        <span id="calendar-refresh"></span>
+		        <div class="calendar-noverflow">
+		          <div id="calendar-animation">
+		            <div id="calendar-entries">
+		            </div>
+		          </div>
+		        </div>
+		      </div>	
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <a href="#" id="gallery-link">
-      <span id="gallery_space" class="gallery-space">
-        <span id="gallery" class="gallery-foreground"></span>
-        <span id="gallery_next" class="gallery-background"></span>
-      </span>
-    </a>
-
-    <div class="gallery-description">
-      <div class="golden" id="gallery-text">
-        ...
-      </div>
-    </div>
-
-    <div class="post-gallery-space">
-      <div class="links-container">
-        <ul>
-          <li><a href="http://groups.google.com/group/heatsynclabs">Say Hi on Google Groups</a>
-          <li><a href="http://wiki.heatsynclabs.org/wiki/faq">FAQ</a>
-          <li><a href="http://wiki.heatsynclabs.org/wiki">Wiki</a>
-        </ul>
-      </div>
-      <div id="cameras" class="camera-container">
-        <div class="camera-info">
-          <a href="#" class="netinfo" id="netinfo-anchor">
-            <span class="icon">&#119946;</span>
-            <span class="popup" id="netinfo-span">...</span>
-          </a>
+      <div class="columns imageTag">
+        <div class="panel float" id="gallerytxt">
+          ...
         </div>
       </div>
     </div>
 
-    <div id="feed" class="feed-centered"></div>
+    <div class="row">
 
-<!--
-    insert rant here about how jsapi is literally the worst thing ever for breaking the DOM when loading through require.
-    jsapi libraries *must* be loaded before main, don't even bother with an autoload callback to define, your efforts are futile.
--->
-    <script src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%7D%5D%7D">
-    </script>
-    <script src="js/require.js"></script>
+      <div class="twelve columns show-for-small">
+        <div class="share">
+	        <a href="http://maps.google.com">
+	          <img src="images/maps2.png" class="external-logo" alt="Google Map">
+	        </a>
+	        <a href="http://www.flickr.com/groups/heatsynclabs/pool/">
+	          <img src="images/flickr.png" class="external-logo" alt="Flickr">
+	        </a>
+	        <a href="http://twitter.com/heatsynclabs/">
+	          <img src="images/twitter.png" class="external-logo" alt="Twitter">
+	        </a>
+	        <a href="http://www.facebook.com/HeatSyncLabs">
+	          <img src="images/facebook.png" class="external-logo" alt="Face">
+	        </a>
+	        <a class="button" href="http://www.heatsynclabs.org/get-involved/membership/">Support Us</a>
+        </div>
+      </div>
+    </div>
 
-<!--
-    <script src="js/curl/curl.js"></script>
--->
-    <script src="js/main.js"></script>
+
+    <div class="row">
+		      <div class="six columns">
+		        <ul>
+		          <li><a href="http://groups.google.com/group/heatsynclabs">Say Hi on Google Groups</a>
+		          <li><a href="http://wiki.heatsynclabs.org/wiki/faq">FAQ</a>
+		          <li><a href="http://wiki.heatsynclabs.org/wiki">Wiki</a>
+		        </ul>
+		      </div>
+          	  <div class="six columns">
+		      	<div id="cameras">
+		        	<div>
+		          		<a href="#" class="netinfo" id="netinfo-anchor">
+		            	<span class="icon">&#119946;</span>
+		            	<span class="popup" id="netinfo-span">...</span>
+		          		</a>
+		        	</div>
+		      	</div>
+          	  </div>
+
+    </div>
+
+    <div class="row" id="feed">
+		<div class="twelve columns">
+      		<h4>feeds loading ... </h4>
+		</div>
+    </div>
+
+	<!--
+	    insert rant here about how jsapi is literally the worst thing ever for breaking the DOM when loading through require.
+	    jsapi libraries *must* be loaded before main, don't even bother with an autoload callback to define, your efforts are futile.
+	-->
+	    <script src="https://www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22feeds%22%2C%22version%22%3A%221.0%22%7D%5D%7D">
+	    </script>
+	    <script src="js/require.js"></script>
+
+	<!--
+	    <script src="js/curl/curl.js"></script>
+	-->
+	    <script src="js/main.js"></script>
+
   </body>
 </html>
